@@ -125,8 +125,7 @@ p{margin:0}
 .preco .por{font-size:15px;color:var(--muted);font-weight:600}
 .preco .por strong{font:800 34px/1.1 'Manrope',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums;margin-left:4px}
 .card-foot .btn{width:100%;margin-top:18px}
-.grid-2 .card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
-.grid-2 .card .slot{aspect-ratio:auto;height:100%;min-height:320px}
+.grid-2 .card .slot,.grid-2 .card .slot.slot--inteira{--ar:16/10}
 
 .tag-confirmar{display:inline-block;font:700 11px/1.4 'Manrope',sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#fff0bf;color:#6e4e00;border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:1px}
 
@@ -304,7 +303,7 @@ const CONFIG = {
       de: 149.90, por: 99.90, botao: 'QUERO MEU SHOT IMPULSO'
     },
     {
-      nome: 'SantEnergy Drink', nomeMsg: 'SantEnergy Drink', foto: '',
+      nome: 'SantEnergy Drink', nomeMsg: 'SantEnergy Drink', foto: 'fotos/santenergy-drink.jpg', fotoInteira: true,
       apresentacao: 'Pó para preparo em sachê', aConfirmar: false,
       chamada: 'Um drink prático para a rotina ativa.',
       descricao: 'Com SantEnergy™ Nu, guaraná e niacinamida, em sachê para diluir em água.',
@@ -313,7 +312,7 @@ const CONFIG = {
       de: 298.90, por: 239.90, botao: 'QUERO MEU SANTENERGY DRINK'
     },
     {
-      nome: 'PeptiPump®', nomeMsg: 'PeptiPump®', foto: '',
+      nome: 'PeptiPump®', nomeMsg: 'PeptiPump®', foto: 'fotos/peptipump.jpg', fotoInteira: true,
       apresentacao: 'Apresentação comercial', aConfirmar: true,
       chamada: 'Peptídeos de lentilha para sua rotina de treino.',
       descricao: 'Fórmula com PeptiPump®, ingrediente à base de peptídeos derivados da proteína de lentilha.',
@@ -333,7 +332,7 @@ const CONFIG = {
     },
     {
       // Grafia: usar a da embalagem aprovada (Elibrya® x Elybrya).
-      nome: 'Elibrya®', nomeMsg: 'Elibrya®', foto: '',
+      nome: 'Elibrya®', nomeMsg: 'Elibrya®', foto: 'fotos/elibrya.jpg', fotoInteira: true,
       apresentacao: 'Cápsulas | 150 mg', aConfirmar: false,
       chamada: 'Um cuidado para sua rotina de bem-estar.',
       descricao: 'Fórmula com Elibrya® 150 mg, extrato padronizado da raiz de Akarkara (Anacyclus pyrethrum DC).',
