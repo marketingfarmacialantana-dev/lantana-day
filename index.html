@@ -53,6 +53,9 @@ p{margin:0}
 /* Espaço de foto: troque pelo arquivo real no CONFIG */
 .slot{position:relative;overflow:hidden;border-radius:var(--radius);aspect-ratio:var(--ar,4/3);display:grid;place-items:center;background:radial-gradient(120% 95% at 30% 15%,#ffffff 0%,var(--tint,#e2ebf6) 65%)}
 .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.slot--inteira{background:#f4ebdd}
+.card .slot.slot--inteira{--ar:1/1}
+.slot--inteira img{object-fit:contain}
 
 /* Banner */
 .hero{min-height:min(calc(100svh - var(--head)),860px);display:flex;align-items:center;padding-block:48px}
@@ -162,6 +165,7 @@ p{margin:0}
   .hero .btn,.fechamento .btn{width:100%}
   .grid-3 .card,.grid-2 .card{display:flex}
   .grid-3 .card .slot,.grid-2 .card .slot{aspect-ratio:4/3;height:auto;min-height:0}
+  .grid-3 .card .slot.slot--inteira{aspect-ratio:1/1}
   .foot{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
@@ -267,6 +271,7 @@ p{margin:0}
 /* =====================================================================
    CONFIG: tudo o que muda na campanha fica aqui.
    - foto: caminho da imagem real (ex.: 'fotos/creatina.jpg'). Vazio = espaço reservado.
+   - fotoInteira: true mostra a imagem sem cortes (para cards prontos com texto na arte).
    - aConfirmar: true mostra a etiqueta "a confirmar" ao lado da apresentação.
    ===================================================================== */
 const CONFIG = {
@@ -291,7 +296,7 @@ const CONFIG = {
 
   treino: [
     {
-      nome: 'Shot Impulso', nomeMsg: 'Shot Impulso', foto: '',
+      nome: 'Shot Impulso', nomeMsg: 'Shot Impulso', foto: 'fotos/shot-impulso.jpg', fotoInteira: true,
       apresentacao: 'Lantana Nutrition | Pink Lemonade', aConfirmar: false,
       chamada: 'Seu pré-treino com sabor Pink Lemonade.',
       descricao: 'Shot pré-treino com beta-alanina, taurina, arginina e cafeína, em uma opção de sabor cítrico.',
@@ -345,9 +350,9 @@ const total = (qtd, preco) => centavos(preco) * qtd / 100;
 const wa = msg => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
 const tag = '<span class="tag-confirmar">a confirmar</span>';
 
-function slot(foto, rotulo, alt) {
+function slot(foto, rotulo, alt, inteira) {
   return foto
-    ? `<div class="slot"><img src="${foto}" alt="${alt}" loading="lazy"></div>`
+    ? `<div class="slot${inteira ? ' slot--inteira' : ''}"><img src="${foto}" alt="${alt}" loading="lazy"></div>`
     : `<div class="slot" data-foto-pendente="${rotulo}"></div>`;
 }
 
@@ -381,7 +386,7 @@ const iconeAviso = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden=
 function card(p) {
   const msg = `Olá! Vi o ${p.nomeMsg} nas ofertas de novembro da Lantana e gostaria de aproveitar a condição.`;
   return `<article class="card">
-    ${slot(p.foto, p.nome, `Embalagem de ${p.nome}`)}
+    ${slot(p.foto, p.nome, `Embalagem de ${p.nome}`, p.fotoInteira)}
     <div class="card-body">
       <h3>${p.nome}</h3>
       <p class="apres">${p.apresentacao}${p.aConfirmar ? tag : ''}</p>
