@@ -78,7 +78,7 @@ p{margin:0}
 
 /* Creatina Gummy */
 .cg-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;margin-bottom:clamp(48px,6vw,64px)}
-.cg-top .slot{--ar:4/3;--tint:#eedbe8}
+.cg-top .slot{--ar:1/1;--tint:#eedbe8}
 .cg-info h2{font-size:clamp(36px,4.4vw,56px);color:var(--grape)}
 .cg-chamada{font-size:clamp(20px,2vw,24px);font-weight:700;margin:14px 0 12px}
 .cg-desc{color:var(--muted);font-size:17px;max-width:46ch}
@@ -285,7 +285,7 @@ const CONFIG = {
   heroFoto: '',            // embalagem da Creatina Gummy em primeiro plano
   creatina: {
     nome: 'Creatina Gummy sabor Uva',
-    foto: '',              // detalhe das gomas
+    foto: 'img/creatina-gummy.jpg',
     precoRegular: 139.90,
     opcoes: [
       { qtd: 1, precoPote: 119.90 },
@@ -364,7 +364,7 @@ document.getElementById('ho-qtd').textContent = melhor.qtd;
 document.getElementById('ho-total').textContent = brl(total(melhor.qtd, melhor.precoPote));
 document.getElementById('cg-regular').textContent = brl(cg.precoRegular);
 document.getElementById('hero-foto').innerHTML = slot(CONFIG.heroFoto, cg.nome, `Embalagem da ${cg.nome}`);
-document.getElementById('cg-foto').innerHTML = slot(cg.foto, `gomas da ${cg.nome}`, `Gomas da ${cg.nome}`);
+document.getElementById('cg-foto').innerHTML = slot(cg.foto, cg.nome, `Pote de ${cg.nome} com gomas e uvas`);
 
 document.getElementById('opcoes').innerHTML = cg.opcoes.map(o => {
   const t = brl(total(o.qtd, o.precoPote));
