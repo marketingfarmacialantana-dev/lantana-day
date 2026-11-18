@@ -256,13 +256,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
     <div class="watermark" data-rot="0.04" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <p class="eyebrow fade-in">Lantana · Novembro 2026</p>
+        <p class="eyebrow fade-in">Lantana · 23 a 30 de novembro</p>
         <h1><span class="ln"><span>Black</span></span><span class="ln"><span class="out">Week</span></span></h1>
         <p class="hero-sub fade-in">Uma semana de preços especiais na linha <strong>Lantana Nutrition</strong> e <strong>até 25% off</strong> em manipulados selecionados.</p>
         <div class="hero-cta fade-in">
           <a class="btn btn-primary" href="#creatina">Ver ofertas <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           <div id="cd-wrap">
-            <p class="cd-label">Termina em</p>
+            <p class="cd-label" id="cd-label">Termina em</p>
             <div class="countdown" id="countdown" aria-live="off">
               <div><b data-u="d">00</b><small>dias</small></div><i>:</i>
               <div><b data-u="h">00</b><small>horas</small></div><i>:</i>
@@ -355,9 +355,10 @@ const CONFIG = {
   whatsapp: '5531992250059',
   mensagemGeral: 'Olá! Vi a Black Week da Lantana e gostaria de saber mais sobre as ofertas.',
 
-  // Data final da Black Week (contador e rodapé).
+  // Período da Black Week: antes do início o contador mostra "Começa em"; depois, "Termina em".
+  inicio: '2026-11-23T00:00:00-03:00',
   fim: '2026-11-30T23:59:59-03:00',
-  validade: 'Ofertas válidas até 30/11/2026 ou enquanto durarem os estoques. Consulte as condições de pagamento e entrega.',
+  validade: 'Ofertas válidas de 23/11 a 30/11/2026 ou enquanto durarem os estoques. Consulte as condições de pagamento e entrega.',
 
   ticker: ['Black Week Lantana', 'Creatina Gummy a partir de <em>R$ 89,90</em>', 'Manipulados até <em>25% off</em>', 'Shot Impulso por <em>R$ 99,90</em>'],
 
@@ -484,11 +485,13 @@ document.querySelectorAll('[data-wa="geral"]').forEach(a => { a.href = wa(CONFIG
 document.getElementById('validade').textContent = CONFIG.validade;
 
 // Contador
-const fim = new Date(CONFIG.fim).getTime();
-const cd = document.getElementById('countdown');
+const inicio = new Date(CONFIG.inicio).getTime(), fim = new Date(CONFIG.fim).getTime();
+const cd = document.getElementById('countdown'), cdLabel = document.getElementById('cd-label');
 const pad = n => String(n).padStart(2, '0');
 function tick() {
-  let s = Math.max(0, Math.floor((fim - Date.now()) / 1000));
+  const agora = Date.now(), antes = agora < inicio;
+  cdLabel.textContent = antes ? 'Começa em' : 'Termina em';
+  let s = Math.max(0, Math.floor(((antes ? inicio : fim) - agora) / 1000));
   if (!s) { document.getElementById('cd-wrap').hidden = true; return; }
   const v = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
   cd.querySelectorAll('b').forEach(b => { b.textContent = pad(v[b.dataset.u]); });
