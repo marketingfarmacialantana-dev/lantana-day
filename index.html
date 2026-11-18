@@ -1,191 +1,250 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-type="product">
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="page-type" content="product">
-<meta name="site-kind" content="other">
-<title>Lantana Day | Especial de Novembro</title>
-<meta name="description" content="Ofertas de novembro da Lantana: Creatina Gummy sabor uva com preço progressivo e seleção de produtos para treino e bem-estar.">
+<title>Black Week | Lantana</title>
+<meta name="description" content="Black Week Lantana: Creatina Gummy com preço progressivo, Shot Impulso, Suchá Lanfit e até 25% off em manipulados.">
+<meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f5f8fc; --surface:#ffffff; --ink:#13243b; --muted:#53647b; --line:#dbe5f0;
-  --brand:#1d5fae; --brand-dark:#154a8a; --brand-soft:#e6eff9;
-  --accent:#154a8a; --accent-soft:#e6eff9; --accent-line:#c3d5ec;
-  --radius:18px; --radius-sm:10px;
-  --wrap:1200px; --pad:clamp(20px,4vw,40px); --head:72px;
-  --shadow:0 1px 2px rgba(19,36,59,.05),0 8px 24px rgba(19,36,59,.05);
-  --shadow-hover:0 2px 4px rgba(19,36,59,.07),0 18px 40px rgba(19,36,59,.10);
+  --bg:#0a0a0a; --bg-2:#111111; --surface:#151515; --ink:#f4f1ec; --muted:#a3a19c; --dim:#6d6b67;
+  --line:rgba(244,241,236,.10); --line-2:rgba(244,241,236,.18);
+  --brand:#70b5c0; --brand-2:#c7e0e9; --brand-deep:#0e6371; --navy:#0c1319;
+  --radius:22px; --radius-sm:12px;
+  --wrap:1240px; --pad:clamp(20px,4vw,48px); --head:76px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head) + 8px)}
-body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
-h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.015em;line-height:1.08;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head) + 8px);background:var(--bg)}
+body{margin:0;font-family:'Sora',system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.035em;line-height:1}
 p{margin:0}
-:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:6px}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:18px}
-.eyebrow span{color:#b9cbe2;margin-inline:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-style:italic;letter-spacing:-.01em}
+:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:6px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brand)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+::selection{background:var(--brand-deep);color:#fff}
 
-/* Cabeçalho */
-.top{position:sticky;top:0;z-index:20;background:rgba(245,248,252,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.top-in{display:flex;align-items:center;gap:32px;height:var(--head)}
-.logo{display:block;flex:none}
-.logo img{display:block;height:46px;width:auto}
-.top nav{display:flex;gap:28px;margin-left:auto}
-.top nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding-block:4px;background:linear-gradient(var(--brand),var(--brand)) 0 100%/0 1.5px no-repeat;transition:background-size .25s ease}
-.top nav a:hover{background-size:100% 1.5px}
+/* ícone vazado da Lantana: marca d'água discreta */
+.watermark{position:absolute;pointer-events:none;z-index:0;aspect-ratio:1;background:url(bw/icone-lantana-vazado.png) center/contain no-repeat;opacity:var(--o,.09)}
+.hero .watermark{width:min(78vw,980px);right:-22%;top:50%;margin-top:calc(min(78vw,980px) / -2);--o:.10}
+.manip .watermark{width:min(60vw,720px);left:-18%;top:-10%;--o:.07}
+.closing .watermark{width:min(90vw,860px);left:50%;bottom:-62%;margin-left:calc(min(90vw,860px) / -2);--o:.09}
+.hero-grid,.manip .wrap,.closing .wrap{position:relative;z-index:1}
 
-/* Botões */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;font:700 15px/1.2 'Manrope',sans-serif;letter-spacing:.06em;text-decoration:none;text-align:center;cursor:pointer;border:0;transition:background-color .2s,color .2s,transform .15s,box-shadow .2s}
+/* grão sutil */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* barra de progresso */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--brand),var(--brand-2));z-index:60}
+
+/* cabeçalho */
+.top{position:fixed;inset:0 0 auto;z-index:50;transition:background-color .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+.top.is-solid{background:rgba(10,10,10,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--line)}
+.top-in{display:flex;align-items:center;gap:36px;height:var(--head)}
+.logo img{height:52px;width:auto}
+.top nav{display:flex;gap:30px;margin-left:auto}
+.top nav a{text-decoration:none;font-size:14px;font-weight:500;color:var(--muted);transition:color .25s}
+.top nav a:hover{color:var(--ink)}
+
+/* botões */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 30px;border-radius:999px;font:600 14px/1.2 'Sora',sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease),color .3s,box-shadow .3s}
+.btn svg{transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--ink);color:#0a0a0a}
+.btn-primary::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--c,var(--brand));transform:translateY(101%);transition:transform .45s var(--ease)}
+.btn-primary:hover::before{transform:none}
+.btn-ghost{min-height:42px;padding:0 20px;font-size:12px;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
 .btn:active{transform:scale(.98)}
-.btn-primary{background:var(--brand);color:#fff}
-.btn-primary:hover{background:var(--brand-dark);transform:translateY(-1px)}
-.btn-ghost{background:transparent;color:var(--brand);box-shadow:inset 0 0 0 1.5px var(--brand);min-height:44px;padding:0 20px;font-size:14px;letter-spacing:.02em}
-.btn-ghost:hover{background:var(--brand);color:#fff}
-.btn-light{background:#fff;color:var(--brand-dark)}
-.btn-light:hover{background:var(--brand-soft);transform:translateY(-1px)}
 
-/* Espaço de foto: troque pelo arquivo real no CONFIG */
-.slot{position:relative;overflow:hidden;border-radius:var(--radius);aspect-ratio:var(--ar,4/3);display:grid;place-items:center;background:radial-gradient(120% 95% at 30% 15%,#ffffff 0%,var(--tint,#e2ebf6) 65%)}
-.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.slot--inteira{background:#f4ebdd}
-.card .slot.slot--inteira{--ar:1/1}
-.slot--inteira img{object-fit:contain}
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:calc(var(--head) + 32px) 0 56px;overflow:hidden}
+.hero-glow{position:absolute;inset:auto -10% -30% 30%;height:90%;background:radial-gradient(closest-side,rgba(14,99,113,.38),transparent 70%);filter:blur(20px);pointer-events:none}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(12,19,25,.9));pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,64px);align-items:center;width:100%}
+.hero h1{font-size:clamp(68px,12.5vw,190px);font-weight:700;letter-spacing:-.06em;line-height:.86;margin:28px 0 30px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .ln > span{display:block;transform:translateY(105%);transition:transform 1.1s var(--ease)}
+.hero h1 .ln:nth-child(2) > span{transition-delay:.12s}
+.is-loaded .hero h1 .ln > span{transform:none}
+.hero h1 .out,.closing h2 .out{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.03em;background:linear-gradient(100deg,var(--ink) 10%,var(--brand-2) 55%,var(--dim) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.hero-sub{font-size:clamp(16px,1.4vw,19px);color:var(--muted);max-width:40ch;font-weight:300}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:28px;margin-top:36px}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity .9s var(--ease) .45s,transform .9s var(--ease) .45s}
+.is-loaded .fade-in{opacity:1;transform:none}
 
-/* Banner */
-.hero{min-height:min(calc(100svh - var(--head)),860px);display:flex;align-items:center;padding-block:48px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;width:100%}
-.hero h1{font-size:clamp(46px,6.4vw,88px)}
-.lead{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:36ch;margin:24px 0 28px}
-.hero-offer{display:grid;gap:2px;padding:16px 20px;border-radius:var(--radius-sm);background:var(--accent-soft);border:1px solid var(--accent-line);margin-bottom:28px;max-width:440px}
-.ho-nome{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.ho-preco{font-size:16px}
-.ho-preco strong{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.ho-total{font-size:14px;color:var(--muted);font-weight:600}
-.hero .slot{--ar:1/1;--tint:#d9e6f5;max-height:min(calc(100svh - var(--head) - 96px),720px);width:100%;margin-inline:auto}
+.countdown{display:flex;gap:6px;align-items:flex-start}
+.countdown div{display:grid;justify-items:center;min-width:56px}
+.countdown b{font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1}
+.countdown small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.countdown i{font-style:normal;font-size:24px;color:var(--dim);line-height:1.2}
+.cd-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 
-/* Seções */
-.block{padding-block:clamp(64px,9vw,112px)}
-.block--surface{background:var(--surface);border-block:1px solid var(--line)}
-.sec-head{max-width:640px;margin-bottom:clamp(32px,4vw,48px)}
-.sec-head h2{font-size:clamp(32px,4vw,52px)}
-.sec-head p{color:var(--muted);font-size:18px;margin-top:14px}
+.hero-visual{position:relative;justify-self:center;width:min(100%,460px)}
+.hero-visual img{width:100%;-webkit-mask-image:radial-gradient(closest-side at 50% 52%,#000 62%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 52%,#000 62%,transparent 100%);opacity:0;transform:scale(1.06);transition:opacity 1.4s var(--ease) .2s,transform 1.8s var(--ease) .2s}
+.is-loaded .hero-visual img{opacity:1;transform:none}
+.hero-badge{position:absolute;right:2%;top:14%;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--ink);color:#0a0a0a;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.25;animation:float 6s ease-in-out infinite}
+.hero-badge strong{display:block;font-size:30px;letter-spacing:-.04em;line-height:1}
+@keyframes float{50%{transform:translateY(-10px) rotate(-4deg)}}
+.scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:1px;height:44px;background:linear-gradient(var(--line-2),transparent);overflow:hidden}
+.scroll-hint::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--ink);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{to{top:110%}}
 
-/* Creatina Gummy */
-.cg-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;margin-bottom:clamp(48px,6vw,64px)}
-.cg-top .slot{--ar:1/1;--tint:#e2ebf6}
-.cg-info h2{font-size:clamp(36px,4.4vw,56px);color:var(--accent)}
-.cg-chamada{font-size:clamp(20px,2vw,24px);font-weight:700;margin:14px 0 12px}
-.cg-desc{color:var(--muted);font-size:17px;max-width:46ch}
-.cg-regular{margin-top:22px;font-size:15px;color:var(--muted)}
-.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:20px 0 0}
-.chips li{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--brand-soft);color:var(--brand-dark)}
-.cg .chips li{background:var(--accent-soft);color:var(--accent)}
+/* faixa corrida */
+.ticker{border-block:1px solid var(--line);overflow:hidden;padding-block:18px;background:var(--bg)}
+.ticker-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.ticker span{display:inline-flex;align-items:center;gap:28px;padding-right:28px;font-size:clamp(18px,2.2vw,28px);font-weight:500;letter-spacing:-.02em;white-space:nowrap}
+.ticker span em{font-family:'Instrument Serif',serif;font-weight:400;color:var(--muted)}
+.ticker span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand)}
+@keyframes marquee{to{transform:translateX(-50%)}}
 
-.opcoes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
-.opcao{position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius);padding:30px 28px 28px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s}
-.opcao:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--accent-line)}
-.opcao.destaque{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),var(--shadow);background:linear-gradient(#fff,#fff) padding-box,var(--accent)}
-.opcao.destaque:hover{box-shadow:0 0 0 1px var(--accent),var(--shadow-hover)}
-.selo{position:absolute;top:-14px;left:26px;background:var(--accent);color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-.opcao h3{font-size:30px}
-.op-de{color:var(--muted);font-size:14px;margin-top:10px}
-.op-por{margin-top:2px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
-.op-por strong{font:800 clamp(34px,3.2vw,42px)/1.1 'Manrope',sans-serif;color:var(--accent);font-variant-numeric:tabular-nums}
-.op-por span{font-size:14px;color:var(--muted);font-weight:700}
-.op-total{margin:18px 0 24px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:15px;color:var(--muted);font-weight:600}
-.op-total strong{font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums}
-.opcao .btn{margin-top:auto;width:100%}
-.opcao .btn:hover,.opcao .btn:active{transform:none}
-.opcao .btn::after{content:"";position:absolute;inset:0;border-radius:var(--radius)}
+/* seções */
+.block{padding-block:clamp(88px,12vw,160px);position:relative}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:32px;align-items:end;margin-bottom:clamp(44px,6vw,80px)}
+.sec-head h2{font-size:clamp(40px,6vw,84px);margin-top:20px}
+.sec-head p{color:var(--muted);font-size:17px;font-weight:300;max-width:42ch;justify-self:end}
 
-/* Cards da vitrine */
-.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
-.block--surface .card{background:var(--bg)}
-.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
-.card:hover .slot img{transform:scale(1.03)}
-.card .slot{border-radius:0;--ar:4/3}
-.card-body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
-.card h3{font-size:27px}
-.apres{font-size:13.5px;font-weight:600;color:var(--muted);margin-top:6px}
-.card .chamada{font-weight:700;font-size:17px;margin:16px 0 6px}
-.desc{color:var(--muted);font-size:15px}
-.aviso{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;font-weight:600;background:#fff6e6;color:#6b4a12;border-radius:var(--radius-sm);padding:10px 12px;margin-top:16px}
-.aviso svg{flex:none;margin-top:2px}
-.card-foot{margin-top:auto;padding-top:24px}
-.preco{display:flex;flex-direction:column;gap:2px}
-.preco .de{font-size:14px;color:var(--muted)}
-.preco .por{font-size:15px;color:var(--muted);font-weight:600}
-.preco .por strong{font:800 34px/1.1 'Manrope',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums;margin-left:4px}
-.card-foot .btn{width:100%;margin-top:18px}
-.grid-2 .card .slot,.grid-2 .card .slot.slot--inteira{--ar:16/10}
+/* revelar no scroll */
+.rv{opacity:0;transform:translateY(36px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.rv-img{clip-path:inset(12% 12% 12% 12% round var(--radius));transition:clip-path 1.4s var(--ease)}
+.rv-img.in{clip-path:inset(0 0 0 0 round var(--radius))}
 
-.tag-confirmar{display:inline-block;font:700 11px/1.4 'Manrope',sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#fff0bf;color:#6e4e00;border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:1px}
+/* palco das fotos */
+.stage{position:relative;border-radius:var(--radius);overflow:hidden;background:radial-gradient(90% 70% at 50% 45%,#1c1c1c 0%,#0c0c0c 70%);aspect-ratio:var(--ar,4/5)}
+.stage::before{content:"";position:absolute;inset:auto 10% -20%;height:60%;background:radial-gradient(closest-side,color-mix(in srgb,var(--c,#fff) 28%,transparent),transparent);filter:blur(30px);opacity:.55;transition:opacity .6s}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.stage--png img{object-fit:contain;scale:1.2;translate:0 3%;filter:drop-shadow(0 24px 30px rgba(0,0,0,.65))}
+.stage--png::after{content:"";position:absolute;left:30%;right:30%;bottom:4%;height:16px;border-radius:50%;background:rgba(0,0,0,.75);filter:blur(10px)}
 
-/* Encerramento e rodapé */
-.fechamento{background:var(--brand);color:#fff;text-align:center}
-.fechamento h2{font-size:clamp(36px,5vw,64px)}
-.fechamento p{font-size:18px;opacity:.92;max-width:46ch;margin:16px auto 32px}
-.rodape{background:var(--brand-dark);color:rgba(255,255,255,.88);font-size:14px;padding-block:40px}
+/* creatina */
+.cg-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.cg-grid .stage{--ar:4/5}
+.cg-info h2{font-size:clamp(44px,6.4vw,92px);margin:20px 0 22px}
+.cg-info h2 .serif{color:var(--c)}
+.cg-desc{color:var(--muted);font-weight:300;font-size:17px;max-width:44ch}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:24px 0 0}
+.chips li{font-size:12px;font-weight:500;letter-spacing:.04em;padding:7px 14px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink)}
+.cg-regular{margin-top:26px;font-size:14px;color:var(--dim)}
+
+.opcoes{display:grid;gap:12px;margin-top:36px}
+.opcao{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:22px 24px;border-radius:var(--radius-sm);border:1px solid var(--line);background:rgba(255,255,255,.02);text-decoration:none;transition:border-color .3s,background-color .3s,transform .4s var(--ease)}
+.opcao:hover{border-color:var(--c);background:color-mix(in srgb,var(--c) 8%,transparent);transform:translateX(6px)}
+.op-qtd{font-size:15px;font-weight:600;min-width:72px}
+.op-preco{display:flex;flex-direction:column}
+.op-preco strong{font-size:clamp(24px,2.4vw,32px);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.1}
+.op-preco span{font-size:13px;color:var(--muted)}
+.op-total{text-align:right;font-size:12px;color:var(--dim);letter-spacing:.04em;text-transform:uppercase}
+.op-total b{display:block;font-size:16px;color:var(--ink);letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums}
+.opcao.destaque{border-color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
+.selo{position:absolute;top:-10px;right:20px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--c);color:#fff;padding:4px 10px;border-radius:999px}
+
+/* linha editorial (Nutrition) */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.feature + .feature{margin-top:clamp(80px,10vw,140px)}
+.feature:nth-child(even) .stage{order:2}
+.feature .stage{--ar:4/5}
+.f-num{font-size:12px;letter-spacing:.2em;color:var(--dim)}
+.feature h3{font-size:clamp(40px,5.2vw,72px);margin:16px 0 8px}
+.feature h3 .serif{color:var(--c)}
+.f-apres{font-size:13px;color:var(--muted);letter-spacing:.04em}
+.f-desc{margin-top:22px;color:var(--muted);font-weight:300;font-size:17px;max-width:42ch}
+.preco{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin:32px 0 28px;padding-top:24px;border-top:1px solid var(--line)}
+.preco .de{font-size:15px;color:var(--dim)}
+.preco .por{font-size:clamp(38px,4vw,54px);font-weight:600;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
+.preco .off{font-size:12px;font-weight:600;letter-spacing:.08em;padding:5px 10px;border-radius:999px;background:var(--c);color:#fff}
+
+/* manipulados */
+.manip{background:radial-gradient(70% 60% at 0% 0%,rgba(14,99,113,.22),transparent 70%),linear-gradient(180deg,var(--navy),var(--bg) 85%);border-top:1px solid rgba(112,181,192,.16);overflow:hidden}
+.m-desc{margin-top:14px;color:var(--muted);font-weight:300;font-size:14.5px;line-height:1.6}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{position:relative;display:flex;flex-direction:column;border-radius:var(--radius);border:1px solid var(--line);background:var(--surface);overflow:hidden;transition:transform .6s var(--ease),border-color .4s}
+.card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--c) 55%,transparent)}
+.card:hover .stage img{transform:scale(1.05)}
+.card:hover .stage::before{opacity:1}
+.card .stage{--ar:1/1;border-radius:0}
+.pct{display:flex;align-items:baseline;gap:10px;font-size:clamp(56px,5.6vw,80px);font-weight:700;letter-spacing:-.06em;line-height:.9;color:var(--ink);margin-bottom:18px}
+.pct small{font-size:.42em;letter-spacing:-.02em;margin-left:-6px;font-weight:600}
+.pct-off{font-size:12px;letter-spacing:.22em;font-weight:600;color:var(--c);padding:5px 10px;border:1px solid currentColor;border-radius:999px;align-self:center}
+.card-body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:28px;letter-spacing:-.03em}
+.card .f-apres{margin-top:8px}
+.card .chips{margin-top:18px}
+.card .chips li{font-size:11px;padding:5px 11px}
+.card .btn{margin-top:auto;width:100%}
+.card-foot{margin-top:auto;padding-top:26px}
+
+/* fechamento */
+.closing{text-align:center;overflow:hidden;background:radial-gradient(60% 55% at 50% 100%,rgba(14,99,113,.30),transparent 75%)}
+.closing h2{font-size:clamp(52px,10vw,150px);letter-spacing:-.06em;line-height:.9}
+.closing p{color:var(--muted);font-weight:300;font-size:18px;max-width:44ch;margin:28px auto 40px}
+
+.rodape{background:var(--navy);border-top:1px solid rgba(112,181,192,.16);padding-block:44px;font-size:13px;color:var(--muted)}
 .foot{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center}
-.foot .logo img{height:42px;filter:brightness(0) invert(1)}
-.foot .validade{max-width:62ch}
-.foot nav{display:flex;gap:20px}
-.foot a{color:#fff;text-decoration:none;font-weight:700;background:linear-gradient(#fff,#fff) 0 100%/0 1px no-repeat;transition:background-size .25s}
-.foot a:hover{background-size:100% 1px}
-.rodape .tag-confirmar{margin-left:0}
+.foot .logo img{height:50px}
+.foot nav{display:flex;gap:22px}
+.foot a{text-decoration:none;color:var(--ink);transition:opacity .2s}
+.foot a:hover{opacity:.7}
 
 @media (max-width:959px){
-  .hero{min-height:auto}
-  .hero-grid,.cg-top{grid-template-columns:1fr}
-  .hero .slot{--ar:1/1;max-height:none}
-  .grid-3,.grid-2{grid-template-columns:1fr}
-  .grid-3 .card,.grid-2 .card{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr)}
-  .grid-3 .card .slot,.grid-2 .card .slot{aspect-ratio:auto;height:100%;min-height:300px}
+  .hero-grid,.cg-grid,.feature,.sec-head{grid-template-columns:1fr}
+  .hero-visual{width:min(72%,360px);order:-1;margin-top:8px;translate:none!important}
+  .hero-visual img{aspect-ratio:1/1;object-fit:cover;object-position:50% 48%}
+  .hero h1{margin-top:20px}
+  .feature:nth-child(even) .stage{order:0}
+  .sec-head p{justify-self:start}
+  .grid-3{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
   .foot{grid-template-columns:auto 1fr}
   .foot nav{grid-column:1/-1}
-}
-@media (max-width:759px){
-  .opcoes{grid-template-columns:1fr;gap:28px}
 }
 @media (max-width:639px){
   :root{--head:64px}
   .top nav{display:none}
   .top-in{justify-content:space-between}
-  .logo img{height:38px}
-  .hero{padding-block:32px 48px}
-  .hero .btn,.fechamento .btn{width:100%}
-  .grid-3 .card,.grid-2 .card{display:flex}
-  .grid-3 .card .slot,.grid-2 .card .slot{aspect-ratio:4/3;height:auto;min-height:0}
-  .grid-3 .card .slot.slot--inteira{aspect-ratio:1/1}
+  .logo img{height:42px}
+  .hero-badge{width:92px;height:92px;font-size:9px;right:-4%}
+  .hero-badge strong{font-size:24px}
+  .hero-cta{gap:22px}
+  .hero-cta .btn,.closing .btn{width:100%}
+  .countdown div{min-width:48px}
+  .countdown b{font-size:24px}
+  .opcao{grid-template-columns:1fr auto;padding:20px}
+  .op-qtd{grid-column:1/-1;min-width:0}
   .foot{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{transition:none!important}
-  .card:hover,.opcao:hover,.btn:hover,.btn:active{transform:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.fade-in,.hero h1 .ln > span,.hero-visual img{opacity:1!important;transform:none!important}
+  .rv-img{clip-path:none!important}
 }
 </style>
 </head>
 <body>
 <!--
-  LANTANA DAY | NOVEMBRO 2026
-  Para editar preços, textos, fotos e o WhatsApp, altere apenas o bloco CONFIG no final deste arquivo.
+  BLACK WEEK LANTANA | NOVEMBRO 2026
+  Para editar preços, textos, fotos, data final e WhatsApp, altere apenas o bloco CONFIG no final deste arquivo.
 -->
-<header class="top">
+<div class="progress" id="progress"></div>
+
+<header class="top" id="top">
   <div class="wrap top-in">
-    <a href="#topo" class="logo"><img src="img/logo-lantana.png" alt="Lantana Saúde Personalizada" width="480" height="166"></a>
+    <a href="#topo" class="logo"><img src="bw/logo-lantana-claro.png" alt="Lantana Saúde Personalizada" width="720" height="238"></a>
     <nav aria-label="Seções">
-      <a href="#ofertas">Creatina Gummy</a>
-      <a href="#treino">Treino</a>
-      <a href="#bem-estar">Bem-estar</a>
+      <a href="#creatina">Creatina Gummy</a>
+      <a href="#nutrition">Lantana Nutrition</a>
+      <a href="#manipulados">Manipulados</a>
     </nav>
     <a class="btn btn-ghost" data-wa="geral" href="#" target="_blank" rel="noopener">Falar com a Lantana</a>
   </div>
@@ -193,72 +252,91 @@ p{margin:0}
 
 <main id="topo">
   <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="watermark" data-rot="0.04" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <p class="eyebrow">Lantana Day<span>|</span>Especial de novembro</p>
-        <h1>Seu ritmo.<br>Suas escolhas.</h1>
-        <p class="lead">Confira as ofertas de novembro da Lantana e aproveite preços especiais na Creatina Gummy sabor uva: quanto mais potes, menor o preço por unidade.</p>
-        <div class="hero-offer">
-          <span class="ho-nome">Creatina Gummy sabor Uva</span>
-          <span class="ho-preco"><strong id="ho-preco">R$ 89,90</strong> por pote na compra de <span id="ho-qtd">3</span></span>
-          <span class="ho-total">Total do pedido: <span id="ho-total">R$ 269,70</span></span>
+        <p class="eyebrow fade-in">Lantana · Novembro 2026</p>
+        <h1><span class="ln"><span>Black</span></span><span class="ln"><span class="out">Week</span></span></h1>
+        <p class="hero-sub fade-in">Uma semana de preços especiais na linha <strong>Lantana Nutrition</strong> e <strong>até 25% off</strong> em manipulados selecionados.</p>
+        <div class="hero-cta fade-in">
+          <a class="btn btn-primary" href="#creatina">Ver ofertas <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <div id="cd-wrap">
+            <p class="cd-label">Termina em</p>
+            <div class="countdown" id="countdown" aria-live="off">
+              <div><b data-u="d">00</b><small>dias</small></div><i>:</i>
+              <div><b data-u="h">00</b><small>horas</small></div><i>:</i>
+              <div><b data-u="m">00</b><small>min</small></div><i>:</i>
+              <div><b data-u="s">00</b><small>seg</small></div>
+            </div>
+          </div>
         </div>
-        <a class="btn btn-primary" href="#ofertas">VER OFERTAS</a>
       </div>
-      <div class="hero-visual" id="hero-foto"></div>
+      <div class="hero-visual" data-speed="-0.12">
+        <img src="bw/creatina-gummy.jpg" alt="Pote de Creatina Gummy sabor uva Lantana Nutrition" width="1024" height="1536" fetchpriority="high">
+        <div class="hero-badge" aria-hidden="true"><span>até<strong>25%</strong>off</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"></div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+  <section class="block" id="creatina" style="--c:#b552d9">
+    <div class="wrap cg-grid">
+      <div class="stage rv-img" id="cg-foto" data-speed="0.04"></div>
+      <div class="cg-info">
+        <p class="eyebrow rv">Destaque da semana</p>
+        <h2 class="rv" style="--d:.08s">Creatina <span class="serif">Gummy</span></h2>
+        <p class="cg-desc rv" style="--d:.16s">Goma com 3 g de creatina monohidratada sabor uva. Zero glúten, zero lactose e zero açúcar. Quanto mais potes, menor o preço por unidade.</p>
+        <ul class="chips rv" style="--d:.22s"><li>3 g por goma</li><li>30 gomas</li><li>1 goma ao dia</li></ul>
+        <div class="opcoes" id="opcoes"></div>
+        <p class="cg-regular rv">Preço regular: <s id="cg-regular"></s> por pote</p>
+      </div>
     </div>
   </section>
 
-  <section class="block block--surface cg" id="ofertas">
-    <div class="wrap">
-      <div class="cg-top">
-        <div class="cg-info">
-          <h2>Creatina Gummy sabor Uva</h2>
-          <p class="cg-chamada">Mais potes, menor preço por unidade.</p>
-          <p class="cg-desc">Creatina em formato de goma, com sabor uva. Escolha quantos potes você quer levar e confira o valor da sua oferta.</p>
-          <ul class="chips"><li>Sabor uva</li><li>Formato em goma</li><li>Oferta progressiva</li></ul>
-          <!-- Gomas por pote e porção de creatina (3 g): incluir somente após validação do rótulo. -->
-          <p class="cg-regular">Preço regular: <s id="cg-regular">R$ 139,90</s> por pote</p>
-        </div>
-        <div id="cg-foto"></div>
-      </div>
-      <div class="opcoes" id="opcoes"></div>
-    </div>
-  </section>
-
-  <section class="block" id="treino">
+  <section class="block" id="nutrition" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Escolhas para a sua rotina de treino</h2>
-        <p>Conheça os formatos e sabores da seleção de novembro.</p>
+        <div>
+          <p class="eyebrow rv">Lantana Nutrition</p>
+          <h2 class="rv" style="--d:.08s">Feitos para <span class="serif">a sua rotina</span></h2>
+        </div>
+        <p class="rv" style="--d:.16s">Pré-treino e chá funcional da nossa linha própria, com preço de Black Week.</p>
       </div>
-      <div class="grid-3" id="lista-treino"></div>
+      <div id="lista-nutrition"></div>
     </div>
   </section>
 
-  <section class="block block--surface" id="bem-estar">
+  <section class="block manip" id="manipulados">
+    <div class="watermark" data-rot="-0.03" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sec-head">
-        <h2>Bem-estar na sua rotina</h2>
-        <p>Conheça mais dois produtos da seleção Lantana de novembro.</p>
+        <div>
+          <p class="eyebrow rv">Manipulados</p>
+          <h2 class="rv" style="--d:.08s">Até <span class="serif">25% off</span></h2>
+        </div>
+        <p class="rv" style="--d:.16s">Desconto direto nos shots manipulados mais pedidos da Lantana. Fale com a equipe para montar o seu pedido.</p>
       </div>
-      <div class="grid-2" id="lista-bem-estar"></div>
+      <div class="grid-3" id="lista-manip"></div>
     </div>
   </section>
 
-  <section class="block fechamento" id="contato">
+  <section class="block closing" id="contato">
+    <div class="watermark" data-rot="0.03" aria-hidden="true"></div>
     <div class="wrap">
-      <h2>Já escolheu sua oferta?</h2>
-      <p>Fale com a equipe da Lantana para tirar dúvidas sobre os produtos e as condições da campanha.</p>
-      <a class="btn btn-light" data-wa="geral" href="#" target="_blank" rel="noopener">FALAR COM A LANTANA</a>
+      <h2 class="rv">Só nesta<br><span class="out">semana.</span></h2>
+      <p class="rv" style="--d:.1s">Fale com a equipe da Lantana para tirar dúvidas sobre os produtos e garantir as condições da Black Week.</p>
+      <a class="btn btn-primary rv" style="--d:.18s" data-wa="geral" href="#" target="_blank" rel="noopener">Falar com a Lantana <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
     </div>
   </section>
 </main>
 
 <footer class="rodape">
   <div class="wrap foot">
-    <a href="#topo" class="logo"><img src="img/logo-lantana.png" alt="Lantana Saúde Personalizada" width="480" height="166"></a>
-    <p class="validade" id="validade"></p>
+    <a href="#topo" class="logo"><img src="bw/logo-lantana-claro.png" alt="Lantana Saúde Personalizada" width="720" height="238"></a>
+    <p id="validade"></p>
     <nav aria-label="Lantana nas redes">
       <a href="https://www.farmacialantana.com.br" target="_blank" rel="noopener">farmacialantana.com.br</a>
       <a href="https://www.instagram.com/farmacialantana/" target="_blank" rel="noopener">@farmacialantana</a>
@@ -269,145 +347,195 @@ p{margin:0}
 <script>
 /* =====================================================================
    CONFIG: tudo o que muda na campanha fica aqui.
-   - foto: caminho da imagem real (ex.: 'fotos/creatina.jpg'). Vazio = espaço reservado.
-   - fotoInteira: true mostra a imagem sem cortes (para cards prontos com texto na arte).
-   - aConfirmar: true mostra a etiqueta "a confirmar" ao lado da apresentação.
+   - cor: cor de destaque de cada produto (puxada da embalagem).
+   - png: true para fotos com fundo transparente.
    ===================================================================== */
 const CONFIG = {
-  // PROVISÓRIO: número do televendas de outubro. Confirmar antes de ativar os botões.
+  // WhatsApp: +55 31 9 9225-0059
   whatsapp: '5531992250059',
-  mensagemGeral: 'Olá! Gostaria de saber mais sobre as ofertas de novembro da Lantana.',
+  mensagemGeral: 'Olá! Vi a Black Week da Lantana e gostaria de saber mais sobre as ofertas.',
 
-  // Rodapé. Campanha de 01/11 a 30/11/2026.
-  validade: 'Ofertas válidas até 30/11/2026. Consulte as condições de pagamento e entrega.',
+  // Data final da Black Week (contador e rodapé).
+  fim: '2026-11-30T23:59:59-03:00',
+  validade: 'Ofertas válidas até 30/11/2026 ou enquanto durarem os estoques. Consulte as condições de pagamento e entrega.',
 
-  heroFoto: 'img/novembro-azul.jpg',
+  ticker: ['Black Week Lantana', 'Creatina Gummy a partir de <em>R$ 89,90</em>', 'Manipulados até <em>25% off</em>', 'Shot Impulso por <em>R$ 99,90</em>'],
+
   creatina: {
     nome: 'Creatina Gummy sabor Uva',
-    foto: 'img/creatina-gummy.jpg',
+    foto: 'bw/creatina-gummy.jpg',
     precoRegular: 139.90,
     opcoes: [
       { qtd: 1, precoPote: 119.90 },
       { qtd: 2, precoPote: 109.90 },
-      { qtd: 3, precoPote: 89.90, selo: 'Menor preço por pote' }
+      { qtd: 3, precoPote: 89.90, selo: 'Melhor preço' }
     ]
   },
 
-  treino: [
+  nutrition: [
     {
-      nome: 'Shot Impulso', nomeMsg: 'Shot Impulso', foto: 'fotos/shot-impulso.jpg', fotoInteira: true,
-      apresentacao: 'Lantana Nutrition | Pink Lemonade', aConfirmar: false,
-      chamada: 'Seu pré-treino com sabor Pink Lemonade.',
-      descricao: 'Shot pré-treino com beta-alanina, taurina, arginina e cafeína, em uma opção de sabor cítrico.',
-      destaques: ['Pink Lemonade', 'Formato shot', 'Com cafeína'],
-      de: 149.90, por: 99.90, botao: 'QUERO MEU SHOT IMPULSO'
+      nome: 'Shot <span class="serif">Impulso</span>', nomeMsg: 'Shot Pré-treino Impulso', cor: '#e8452a',
+      foto: 'bw/shot-impulso.jpg',
+      apresentacao: '30 doses · 300 g · Pink Lemonade',
+      descricao: 'Suplemento pré-treino com beta-alanina, taurina, arginina, cafeína, magnésio, zinco e vitamina B6. Dilua 1 dosador em 250 ml de água e tome antes do treino.',
+      destaques: ['Pink Lemonade', 'Zero açúcar', 'Com cafeína'],
+      de: 149.90, por: 99.90
     },
     {
-      nome: 'SantEnergy Drink', nomeMsg: 'SantEnergy Drink', foto: 'fotos/santenergy-drink.jpg', fotoInteira: true,
-      apresentacao: 'Pó para preparo em sachê', aConfirmar: false,
-      chamada: 'Um drink prático para a rotina ativa.',
-      descricao: 'Com SantEnergy™ Nu, guaraná e niacinamida, em sachê para diluir em água.',
-      destaques: ['SantEnergy™ Nu', 'Com guaraná', 'Preparo em água'],
-      aviso: 'Não consumir à noite, conforme material do produto.',
-      de: 298.90, por: 239.90, botao: 'QUERO MEU SANTENERGY DRINK'
-    },
-    {
-      nome: 'PeptiPump®', nomeMsg: 'PeptiPump®', foto: 'fotos/peptipump.jpg', fotoInteira: true,
-      apresentacao: 'Apresentação comercial', aConfirmar: true,
-      chamada: 'Peptídeos de lentilha para sua rotina de treino.',
-      descricao: 'Fórmula com PeptiPump®, ingrediente à base de peptídeos derivados da proteína de lentilha.',
-      destaques: ['Peptídeos de lentilha', 'Seleção de treino'],
-      de: 169.90, por: 119.90, botao: 'QUERO MEU PEPTIPUMP'
+      nome: 'Suchá <span class="serif">Lanfit</span>', nomeMsg: 'Suchá Lanfit', cor: '#2bb3a8',
+      foto: 'bw/sucha-lanfit.jpg',
+      apresentacao: '30 sachês · Sabor uva',
+      descricao: 'Suplemento refrescante com Morosil® (extrato de laranja moro), hibisco, chá verde, guaraná e polpa de uva. Dilua 1 sachê em 200 ml de água gelada.',
+      destaques: ['Sabor uva', '30 sachês', 'Água gelada'],
+      de: 239.90, por: 149.90
     }
   ],
 
-  bemEstar: [
+  manipulados: [
     {
-      nome: 'Suchá Lanfit', nomeMsg: 'Suchá Lanfit', foto: 'fotos/sucha-lanfit.jpg', fotoInteira: true,
-      apresentacao: '30 sachês', aConfirmar: true,
-      chamada: 'Sabor uva para o seu momento de pausa.',
-      descricao: 'Com inulina, laranja moro, hibisco e chá verde. Basta diluir o sachê em água gelada para preparar.',
-      destaques: ['Sabor uva', 'Formato em sachês', 'Preparo com água gelada'],
-      de: 239.90, por: 149.90, botao: 'QUERO MEU SUCHÁ'
+      nome: 'Shot Detox', nomeMsg: 'Shot Detox Green Lanfit', cor: '#4cc04a', off: 20,
+      foto: 'bw/shot-detox.jpg',
+      apresentacao: 'Green Lanfit · 30 doses · 150 g',
+      descricao: 'Com beta-glucana, espirulina, chlorella, couve e espinafre em pó, sabor abacaxi com hortelã. 1 dose ao dia.',
+      destaques: ['Beta-glucana', 'Espirulina', 'Chlorella']
     },
     {
-      // Grafia: usar a da embalagem aprovada (Elibrya® x Elybrya).
-      nome: 'Elibrya®', nomeMsg: 'Elibrya®', foto: 'fotos/elibrya.jpg', fotoInteira: true,
-      apresentacao: 'Cápsulas | 150 mg', aConfirmar: false,
-      chamada: 'Um cuidado para sua rotina de bem-estar.',
-      descricao: 'Fórmula com Elibrya® 150 mg, extrato padronizado da raiz de Akarkara (Anacyclus pyrethrum DC).',
-      destaques: ['150 mg', 'Extrato padronizado', 'Em cápsulas'],
-      de: 189.90, por: 149.90, botao: 'QUERO CONHECER O ELIBRYA'
+      nome: 'Shot Matinal', nomeMsg: 'Lanfit Shot Matinal', cor: '#6cc3b5', off: 20,
+      foto: 'bw/shot-matinal.jpg', pos: '50% 36%',
+      apresentacao: 'Lanfit · Sabor limão · 420 g',
+      descricao: 'Com L-glutamina 3.000 mg, fibras 5,7 g, coenzima Q10, resveratrol, cúrcuma e zinco. Dissolva 2 dosadores em 200 ml de água ou suco.',
+      destaques: ['L-glutamina', 'Fibras', 'Coenzima Q10']
+    },
+    {
+      nome: 'Saúde da Mulher', nomeMsg: 'Shot Saúde da Mulher', cor: '#e1287a', off: 25,
+      foto: 'bw/shot-saude-mulher.jpg',
+      apresentacao: 'Shot · 30 doses · 150 g',
+      descricao: 'Com mio-inositol, L-arginina, feno-grego, pinho marítimo e frutas vermelhas liofilizadas. 1 dose ao dia.',
+      destaques: ['Mio-inositol', 'L-arginina', 'Feno-grego']
     }
   ]
 };
 
 /* ===================== não é preciso editar abaixo ===================== */
-const brl = v => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).replace(/ /g, ' ');
-const centavos = v => Math.round(v * 100);
-const total = (qtd, preco) => centavos(preco) * qtd / 100;
+const brl = v => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).replace(/\s/g, ' ');
+const total = (qtd, preco) => Math.round(preco * 100) * qtd / 100;
 const wa = msg => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
-const tag = '<span class="tag-confirmar">a confirmar</span>';
+const semTag = s => s.replace(/<[^>]+>/g, '');
+const seta = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+const stage = (foto, alt, png, extra = '', pos = '') => `<div class="stage${png ? ' stage--png' : ''} ${extra}"><img src="${foto}" alt="${alt}" loading="lazy"${pos ? ` style="object-position:${pos}"` : ''}></div>`;
 
-function slot(foto, rotulo, alt, inteira) {
-  return foto
-    ? `<div class="slot${inteira ? ' slot--inteira' : ''}"><img src="${foto}" alt="${alt}" loading="lazy"></div>`
-    : `<div class="slot" data-foto-pendente="${rotulo}"></div>`;
-}
+// Ticker
+const itens = CONFIG.ticker.map(t => `<span>${t}</span>`).join('');
+document.getElementById('ticker').innerHTML = itens.repeat(4);
 
-// Banner e destaque
+// Creatina
 const cg = CONFIG.creatina;
-const melhor = cg.opcoes.reduce((a, b) => (b.precoPote < a.precoPote ? b : a));
-document.getElementById('ho-preco').textContent = brl(melhor.precoPote);
-document.getElementById('ho-qtd').textContent = melhor.qtd;
-document.getElementById('ho-total').textContent = brl(total(melhor.qtd, melhor.precoPote));
 document.getElementById('cg-regular').textContent = brl(cg.precoRegular);
-document.getElementById('hero-foto').innerHTML = slot(CONFIG.heroFoto, 'Novembro Azul', 'Novembro Azul: campanha de conscientização da Lantana', true);
-document.getElementById('cg-foto').innerHTML = slot(cg.foto, cg.nome, `Pote de ${cg.nome} com gomas e uvas`);
-
-document.getElementById('opcoes').innerHTML = cg.opcoes.map(o => {
-  const t = brl(total(o.qtd, o.precoPote));
+document.getElementById('cg-foto').innerHTML = `<img src="${cg.foto}" alt="Pote de ${cg.nome}" loading="lazy">`;
+document.getElementById('opcoes').innerHTML = cg.opcoes.map((o, i) => {
   const potes = o.qtd === 1 ? '1 pote' : `${o.qtd} potes`;
-  const sufixo = o.qtd === 1 ? 'por pote' : `por pote na compra de ${o.qtd}`;
-  const msg = `Olá! Vi as ofertas de novembro da Lantana e quero ${potes} de ${cg.nome} por ${t}.`;
-  return `<article class="opcao${o.selo ? ' destaque' : ''}">
+  const t = brl(total(o.qtd, o.precoPote));
+  const msg = `Olá! Vi a Black Week da Lantana e quero ${potes} de ${cg.nome} por ${t}.`;
+  return `<a class="opcao rv${o.selo ? ' destaque' : ''}" style="--d:${.08 * i}s" href="${wa(msg)}" target="_blank" rel="noopener">
     ${o.selo ? `<span class="selo">${o.selo}</span>` : ''}
-    <h3>${potes}</h3>
-    <p class="op-de">De <s>${brl(cg.precoRegular)}</s> por pote</p>
-    <p class="op-por"><strong>${brl(o.precoPote)}</strong><span>${sufixo}</span></p>
-    <p class="op-total">Total do pedido <strong>${t}</strong></p>
-    <a class="btn btn-primary" href="${wa(msg)}" target="_blank" rel="noopener">QUERO ${potes.toUpperCase()}</a>
+    <span class="op-qtd">${potes}</span>
+    <span class="op-preco"><strong>${brl(o.precoPote)}</strong><span>${o.qtd === 1 ? 'por pote' : 'por pote na compra de ' + o.qtd}</span></span>
+    <span class="op-total">Total<b>${t}</b></span>
+  </a>`;
+}).join('');
+
+// Lantana Nutrition
+document.getElementById('lista-nutrition').innerHTML = CONFIG.nutrition.map((p, i) => {
+  const nome = semTag(p.nome);
+  const off = Math.round((1 - p.por / p.de) * 100);
+  const msg = `Olá! Vi o ${p.nomeMsg} na Black Week da Lantana e quero aproveitar a condição.`;
+  return `<article class="feature" style="--c:${p.cor}">
+    ${stage(p.foto, `Embalagem de ${nome}`, p.png, 'rv-img')}
+    <div>
+      <p class="f-num rv">0${i + 1} / 0${CONFIG.nutrition.length}</p>
+      <h3 class="rv" style="--d:.06s">${p.nome}</h3>
+      <p class="f-apres rv" style="--d:.1s">${p.apresentacao}</p>
+      <p class="f-desc rv" style="--d:.14s">${p.descricao}</p>
+      <ul class="chips rv" style="--d:.18s">${p.destaques.map(d => `<li>${d}</li>`).join('')}</ul>
+      <p class="preco rv" style="--d:.22s"><span class="de">De <s>${brl(p.de)}</s></span><span class="por">${brl(p.por)}</span><span class="off">−${off}%</span></p>
+      <a class="btn btn-primary rv" style="--d:.26s" href="${wa(msg)}" target="_blank" rel="noopener">Quero o meu ${seta}</a>
+    </div>
   </article>`;
 }).join('');
 
-// Vitrines
-const iconeAviso = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4.2M8 4.6v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
-function card(p) {
-  const msg = `Olá! Vi o ${p.nomeMsg} nas ofertas de novembro da Lantana e gostaria de aproveitar a condição.`;
-  return `<article class="card">
-    ${slot(p.foto, p.nome, `Embalagem de ${p.nome}`, p.fotoInteira)}
+// Manipulados
+document.getElementById('lista-manip').innerHTML = CONFIG.manipulados.map((p, i) => {
+  const msg = `Olá! Vi o ${p.nomeMsg} com ${p.off}% off na Black Week da Lantana e gostaria de fazer o pedido.`;
+  return `<article class="card rv" style="--c:${p.cor};--d:${.1 * i}s">
+    ${stage(p.foto, `Embalagem do ${p.nome}`, p.png, '', p.pos)}
     <div class="card-body">
+      <p class="pct"><span data-count="${p.off}">0</span><small>%</small><span class="pct-off">OFF</span></p>
       <h3>${p.nome}</h3>
-      <p class="apres">${p.apresentacao}${p.aConfirmar ? tag : ''}</p>
-      <p class="chamada">${p.chamada}</p>
-      <p class="desc">${p.descricao}</p>
+      <p class="f-apres">${p.apresentacao}</p>
+      <p class="m-desc">${p.descricao}</p>
       <ul class="chips">${p.destaques.map(d => `<li>${d}</li>`).join('')}</ul>
-      ${p.aviso ? `<p class="aviso">${iconeAviso}<span>${p.aviso}</span></p>` : ''}
-      <div class="card-foot">
-        <p class="preco"><span class="de">De <s>${brl(p.de)}</s></span><span class="por">por<strong>${brl(p.por)}</strong></span></p>
-        <a class="btn btn-primary" href="${wa(msg)}" target="_blank" rel="noopener">${p.botao}</a>
-      </div>
+      <div class="card-foot"><a class="btn btn-primary" href="${wa(msg)}" target="_blank" rel="noopener">Quero ${p.off}% off ${seta}</a></div>
     </div>
   </article>`;
-}
-document.getElementById('lista-treino').innerHTML = CONFIG.treino.map(card).join('');
-document.getElementById('lista-bem-estar').innerHTML = CONFIG.bemEstar.map(card).join('');
+}).join('');
 
-// Atendimento geral
+// Atendimento geral e rodapé
 document.querySelectorAll('[data-wa="geral"]').forEach(a => { a.href = wa(CONFIG.mensagemGeral); });
-
-// Rodapé
 document.getElementById('validade').textContent = CONFIG.validade;
+
+// Contador
+const fim = new Date(CONFIG.fim).getTime();
+const cd = document.getElementById('countdown');
+const pad = n => String(n).padStart(2, '0');
+function tick() {
+  let s = Math.max(0, Math.floor((fim - Date.now()) / 1000));
+  if (!s) { document.getElementById('cd-wrap').hidden = true; return; }
+  const v = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+  cd.querySelectorAll('b').forEach(b => { b.textContent = pad(v[b.dataset.u]); });
+}
+tick(); setInterval(tick, 1000);
+
+// Animações
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+requestAnimationFrame(() => document.body.classList.add('is-loaded'));
+
+function contar(el) {
+  const alvo = +el.dataset.count;
+  if (reduz) { el.textContent = alvo; return; }
+  const t0 = performance.now(), dur = 1200;
+  const passo = t => { const k = Math.min(1, (t - t0) / dur); el.textContent = Math.round(alvo * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(passo); };
+  requestAnimationFrame(passo);
+}
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(contar);
+  io.unobserve(e.target);
+}), { threshold: .18, rootMargin: '0px 0px -6% 0px' });
+document.querySelectorAll('.rv, .rv-img').forEach(el => io.observe(el));
+
+// Cabeçalho, progresso e parallax
+const hdr = document.getElementById('top'), bar = document.getElementById('progress');
+const par = [...document.querySelectorAll('[data-speed]')];
+const rot = [...document.querySelectorAll('[data-rot]')];
+let pend = false;
+function onScroll() {
+  pend = false;
+  const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
+  hdr.classList.toggle('is-solid', y > 40);
+  bar.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
+  if (reduz) return;
+  rot.forEach(el => { el.style.rotate = `${(y * +el.dataset.rot).toFixed(2)}deg`; });
+  if (innerWidth < 960) return;
+  par.forEach(el => {
+    const r = el.getBoundingClientRect();
+    const meio = r.top + r.height / 2 - innerHeight / 2;
+    el.style.translate = `0 ${(meio * +el.dataset.speed).toFixed(1)}px`;
+  });
+}
+addEventListener('scroll', () => { if (!pend) { pend = true; requestAnimationFrame(onScroll); } }, { passive: true });
+addEventListener('resize', onScroll);
+onScroll();
 </script>
 </body>
 </html>
