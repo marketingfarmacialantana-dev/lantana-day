@@ -94,10 +94,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 /* fileira com todos os produtos da campanha, sem destaque para um só */
 .hero-visual{position:relative;justify-self:center;width:100%;max-width:720px}
 .lineup{display:flex;justify-content:center;align-items:flex-end}
-.lineup img{position:relative;flex:none;width:44%;margin-inline:-9.5%;-webkit-mask-image:radial-gradient(closest-side at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 50%,#000 58%,transparent 100%);opacity:0;transform:translateY(48px);transition:opacity 1.2s var(--ease),transform 1.5s var(--ease);transition-delay:calc(.2s + var(--i) * .12s)}
-.lineup img:nth-child(odd){margin-bottom:12%}
-.lineup img:nth-child(even){z-index:1}
-.is-loaded .lineup img{opacity:1;transform:none}
+.jar{position:relative;flex:none;width:44%;margin-inline:-9.5%;opacity:0;transform:translateY(48px);transition:opacity 1.2s var(--ease),transform 1.5s var(--ease);transition-delay:calc(.2s + var(--i) * .12s)}
+.jar img{width:100%;-webkit-mask-image:radial-gradient(closest-side at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 50%,#000 58%,transparent 100%)}
+.jar:nth-child(odd){margin-bottom:12%}
+.jar:nth-child(even){z-index:1}
+.is-loaded .jar{opacity:1;transform:none}
+/* iguala o tamanho visual dos potes: cada foto tem o pote em uma escala diferente */
+.norm{scale:var(--z,1);transform-origin:50% var(--base,80%);translate:0 calc((80% - var(--base,80%)))}
 .hero-badge{position:absolute;right:0;top:4%;z-index:2;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--ink);color:#0a0a0a;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.25;animation:float 6s ease-in-out infinite}
 .hero-badge strong{display:block;font-size:30px;letter-spacing:-.04em;line-height:1}
 @keyframes float{50%{transform:translateY(-10px) rotate(-4deg)}}
@@ -138,23 +141,28 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 
 /* ofertas */
 .manip{background:radial-gradient(70% 60% at 0% 0%,rgba(14,99,113,.22),transparent 70%),linear-gradient(180deg,var(--navy),var(--bg) 85%);border-top:1px solid rgba(112,181,192,.16);overflow:hidden}
-.m-desc{margin-top:14px;color:var(--muted);font-weight:300;font-size:14.5px;line-height:1.6}
-.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.card{position:relative;display:flex;flex-direction:column;border-radius:var(--radius);border:1px solid var(--line);background:var(--surface);overflow:hidden;transition:transform .6s var(--ease),border-color .4s}
-.card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--c) 55%,transparent)}
-.card:hover .stage img{transform:scale(1.05)}
-.card:hover .stage::before{opacity:1}
-.card .stage{--ar:1/1;border-radius:0}
-.pct{display:flex;align-items:baseline;gap:10px;font-size:clamp(52px,4.6vw,68px);font-weight:700;letter-spacing:-.06em;line-height:.9;color:var(--ink);margin-bottom:18px}
-.pct small{font-size:.42em;letter-spacing:-.02em;margin-left:-6px;font-weight:600}
-.pct-off{font-size:12px;letter-spacing:.22em;font-weight:600;color:var(--c);padding:5px 10px;border:1px solid currentColor;border-radius:999px;align-self:center}
-.card-body{padding:24px 22px 24px;display:flex;flex-direction:column;flex:1}
-.card h3{font-size:25px;letter-spacing:-.03em}
-.card .f-apres{margin-top:8px}
-.card .chips{margin-top:18px}
-.card .chips li{font-size:11px;padding:5px 11px}
-.card .btn{margin-top:auto;width:100%}
-.card-foot{margin-top:auto;padding-top:26px}
+/* um espaço para cada produto, alternando lado da foto */
+.feature{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.feature + .feature{margin-top:clamp(96px,12vw,170px)}
+.feature::before{content:"";position:absolute;z-index:-1;width:70%;aspect-ratio:1;left:-10%;top:50%;translate:0 -50%;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--c) 16%,transparent),transparent);filter:blur(30px);opacity:0;transition:opacity 1.6s var(--ease)}
+.feature.in::before{opacity:1}
+.feature:nth-child(even)::before{left:auto;right:-10%}
+.feature:nth-child(even) .f-media{order:2}
+.f-media{position:relative}
+.feature .stage{--ar:4/5}
+.feature .stage img{transform:scale(1.14);transition:transform 1.8s var(--ease)}
+.feature .stage.in img{transform:none}
+.f-num{font-size:12px;letter-spacing:.2em;color:var(--dim);font-variant-numeric:tabular-nums}
+.feature h3{font-size:clamp(40px,5.2vw,72px);margin:16px 0 10px}
+.feature h3 .serif{color:var(--c)}
+.f-desc{margin-top:22px;color:var(--muted);font-weight:300;font-size:17px;max-width:42ch}
+.f-off{display:flex;align-items:center;gap:18px;margin:34px 0 30px;padding-top:26px;border-top:1px solid var(--line)}
+.pct{display:flex;align-items:flex-start;font-size:clamp(76px,8.4vw,128px);font-weight:700;letter-spacing:-.07em;line-height:.8;color:var(--c);font-variant-numeric:tabular-nums}
+.pct small{font-size:.4em;letter-spacing:-.02em;margin:.08em 0 0 .04em;font-weight:600}
+.pct-off{display:grid;gap:4px;font-size:12px;letter-spacing:.22em;font-weight:600;text-transform:uppercase;color:var(--ink)}
+.pct-off span{letter-spacing:.04em;text-transform:none;font-weight:400;color:var(--muted);font-size:13px}
+.tag-off{position:absolute;z-index:2;top:22px;left:22px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--c);color:#fff}
+.feature:nth-child(even) .tag-off{left:auto;right:22px}
 
 /* fechamento */
 .closing{text-align:center;overflow:hidden;background:radial-gradient(60% 55% at 50% 100%,rgba(14,99,113,.30),transparent 75%)}
@@ -169,12 +177,14 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .foot a:hover{opacity:.7}
 
 @media (max-width:1099px){
-  .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin-inline:auto}
 }
 @media (max-width:959px){
   .hero-grid,.sec-head{grid-template-columns:1fr}
   .hero-visual{max-width:480px;order:-1;margin-top:8px}
-  .lineup img{translate:none!important}
+  .jar,.f-media{translate:none!important}
+  .feature{grid-template-columns:1fr;max-width:560px;margin-inline:auto}
+  .feature:nth-child(even) .f-media{order:0}
+  .feature::before{width:110%;left:-5%;top:30%}
   .hero h1{margin-top:20px}
   .sec-head p{justify-self:start}
   .foot{grid-template-columns:auto 1fr}
@@ -193,13 +203,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   .hero-cta .btn,.closing .btn{width:100%}
   .countdown div{min-width:48px}
   .countdown b{font-size:24px}
-  .grid-4{grid-template-columns:1fr;max-width:480px}
+  .f-media + div .btn{width:100%}
   .foot{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv,.fade-in,.hero h1 .ln > span,.lineup img{opacity:1!important;transform:none!important}
+  .rv,.fade-in,.hero h1 .ln > span,.jar,.feature .stage img{opacity:1!important;transform:none!important}
   .rv-img{clip-path:none!important}
 }
 </style>
@@ -264,7 +274,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
         </div>
         <p class="rv" style="--d:.16s">Desconto direto em quatro produtos da Lantana. Escolha o seu e fale com a equipe pelo WhatsApp para fazer o pedido.</p>
       </div>
-      <div class="grid-4" id="lista-ofertas"></div>
+      <div id="lista-ofertas"></div>
     </div>
   </section>
 
@@ -307,32 +317,34 @@ const CONFIG = {
 
   ticker: ['Black Week Lantana', 'Creatina Gummy <em>35% off</em>', 'Shots até <em>25% off</em>', '18 a 30 de novembro'],
 
-  // Produtos da Black Week (aparecem no topo e nos cards, nesta ordem).
+  // Produtos da Black Week (aparecem no topo e nas seções, nesta ordem).
+  // zoom: aumenta ou diminui o pote na foto para todos parecerem do mesmo tamanho.
+  // base: altura (em %) onde o pote encosta na mesa, para alinhar os potes no topo.
   ofertas: [
     {
-      nome: 'Shot Detox', nomeMsg: 'Shot Detox Green Lanfit', cor: '#4cc04a', off: 20,
-      foto: 'bw/shot-detox.jpg',
+      nome: 'Shot <span class="serif">Detox</span>', nomeMsg: 'Shot Detox Green Lanfit', cor: '#4cc04a', off: 20,
+      foto: 'bw/shot-detox.jpg', zoom: 1.08, base: 76.5,
       apresentacao: 'Green Lanfit · 30 doses · 150 g',
       descricao: 'Com beta-glucana, espirulina, chlorella, couve e espinafre em pó, sabor abacaxi com hortelã. 1 dose ao dia.',
       destaques: ['Beta-glucana', 'Espirulina', 'Chlorella']
     },
     {
-      nome: 'Shot Matinal', nomeMsg: 'Lanfit Shot Matinal', cor: '#6cc3b5', off: 20,
-      foto: 'bw/shot-matinal.jpg', pos: '50% 36%',
+      nome: 'Shot <span class="serif">Matinal</span>', nomeMsg: 'Lanfit Shot Matinal', cor: '#6cc3b5', off: 20,
+      foto: 'bw/shot-matinal.jpg', zoom: 0.97, base: 79, pos: '50% 25%',
       apresentacao: 'Lanfit · Sabor limão · 420 g',
       descricao: 'Com L-glutamina 3.000 mg, fibras 5,7 g, coenzima Q10, resveratrol, cúrcuma e zinco. Dissolva 2 dosadores em 200 ml de água ou suco.',
       destaques: ['L-glutamina', 'Fibras', 'Coenzima Q10']
     },
     {
-      nome: 'Saúde da Mulher', nomeMsg: 'Shot Saúde da Mulher', cor: '#e1287a', off: 25,
-      foto: 'bw/shot-saude-mulher.jpg',
+      nome: 'Saúde <span class="serif">da Mulher</span>', nomeMsg: 'Shot Saúde da Mulher', cor: '#e1287a', off: 25,
+      foto: 'bw/shot-saude-mulher.jpg', zoom: 1.05, base: 76,
       apresentacao: 'Shot · 30 doses · 150 g',
       descricao: 'Com mio-inositol, L-arginina, feno-grego, pinho marítimo e frutas vermelhas liofilizadas. 1 dose ao dia.',
       destaques: ['Mio-inositol', 'L-arginina', 'Feno-grego']
     },
     {
-      nome: 'Creatina Gummy', nomeMsg: 'Creatina Gummy sabor uva', cor: '#b552d9', off: 35,
-      foto: 'bw/creatina-gummy.jpg',
+      nome: 'Creatina <span class="serif">Gummy</span>', nomeMsg: 'Creatina Gummy sabor uva', cor: '#b552d9', off: 35,
+      foto: 'bw/creatina-gummy.jpg', zoom: 0.98, base: 84,
       apresentacao: 'Goma sabor uva · 30 gomas',
       descricao: 'Goma com 3 g de creatina monohidratada. Zero glúten, zero lactose e zero açúcar. 1 goma ao dia.',
       destaques: ['3 g por goma', 'Sabor uva', 'Zero açúcar']
@@ -342,6 +354,7 @@ const CONFIG = {
 
 /* ===================== não é preciso editar abaixo ===================== */
 const wa = msg => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+const semTag = s => s.replace(/<[^>]+>/g, '');
 const seta = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
 const stage = (foto, alt, png, extra = '', pos = '') => `<div class="stage${png ? ' stage--png' : ''} ${extra}"><img src="${foto}" alt="${alt}" loading="lazy"${pos ? ` style="object-position:${pos}"` : ''}></div>`;
 
@@ -352,21 +365,30 @@ document.getElementById('ticker').innerHTML = itens.repeat(4);
 // Topo: todos os produtos lado a lado
 const vel = [-0.06, -0.12, -0.08, -0.14];
 document.getElementById('lineup').innerHTML = CONFIG.ofertas.map((p, i) =>
-  `<img src="${p.foto}" alt="Embalagem de ${p.nome}" width="1024" height="1536" style="--i:${i}" data-speed="${vel[i % vel.length]}"${i < 2 ? ' fetchpriority="high"' : ''}>`
+  `<span class="jar" style="--i:${i}" data-speed="${vel[i % vel.length]}"><img class="norm" src="${p.foto}" alt="Embalagem de ${semTag(p.nome)}" width="1024" height="1536" style="--z:${p.zoom || 1};--base:${p.base || 80}%"${i < 2 ? ' fetchpriority="high"' : ''}></span>`
 ).join('');
 
-// Ofertas
+// Ofertas: um espaço para cada produto
+const total = CONFIG.ofertas.length, dois = n => String(n).padStart(2, '0');
 document.getElementById('lista-ofertas').innerHTML = CONFIG.ofertas.map((p, i) => {
+  const nome = semTag(p.nome);
   const msg = `Olá! Vi o ${p.nomeMsg} com ${p.off}% off na Black Week da Lantana e gostaria de fazer o pedido.`;
-  return `<article class="card rv" style="--c:${p.cor};--d:${.1 * i}s">
-    ${stage(p.foto, `Embalagem do ${p.nome}`, p.png, '', p.pos)}
-    <div class="card-body">
-      <p class="pct"><span data-count="${p.off}">0</span><small>%</small><span class="pct-off">OFF</span></p>
-      <h3>${p.nome}</h3>
-      <p class="f-apres">${p.apresentacao}</p>
-      <p class="m-desc">${p.descricao}</p>
-      <ul class="chips">${p.destaques.map(d => `<li>${d}</li>`).join('')}</ul>
-      <div class="card-foot"><a class="btn btn-primary" href="${wa(msg)}" target="_blank" rel="noopener">Quero ${p.off}% off ${seta}</a></div>
+  return `<article class="feature" style="--c:${p.cor}">
+    <div class="f-media" data-speed="0.05">
+      <span class="tag-off">${p.off}% off</span>
+      <div class="stage rv-img"><img src="${p.foto}" alt="Embalagem de ${nome}" loading="lazy" style="scale:${p.zoom || 1}${p.pos ? `;object-position:${p.pos}` : ''}"></div>
+    </div>
+    <div>
+      <p class="f-num rv">${dois(i + 1)} / ${dois(total)}</p>
+      <h3 class="rv" style="--d:.06s">${p.nome}</h3>
+      <p class="f-apres rv" style="--d:.1s">${p.apresentacao}</p>
+      <p class="f-desc rv" style="--d:.14s">${p.descricao}</p>
+      <ul class="chips rv" style="--d:.18s">${p.destaques.map(d => `<li>${d}</li>`).join('')}</ul>
+      <div class="f-off rv" style="--d:.22s">
+        <p class="pct"><span data-count="${p.off}">0</span><small>%</small></p>
+        <p class="pct-off">Off na Black Week<span>de 18 a 30 de novembro</span></p>
+      </div>
+      <a class="btn btn-primary rv" style="--d:.28s;--c:${p.cor}" href="${wa(msg)}" target="_blank" rel="noopener">Quero ${p.off}% off ${seta}</a>
     </div>
   </article>`;
 }).join('');
@@ -406,7 +428,7 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   e.target.querySelectorAll('[data-count]').forEach(contar);
   io.unobserve(e.target);
 }), { threshold: .18, rootMargin: '0px 0px -6% 0px' });
-document.querySelectorAll('.rv, .rv-img').forEach(el => io.observe(el));
+document.querySelectorAll('.rv, .rv-img, .feature').forEach(el => io.observe(el));
 
 // Cabeçalho, progresso e parallax
 const hdr = document.getElementById('top'), bar = document.getElementById('progress');
