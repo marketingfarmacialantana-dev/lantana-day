@@ -57,14 +57,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .top nav a:hover{color:var(--ink)}
 
 /* botões */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 30px;border-radius:999px;font:600 14px/1.2 'Sora',sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease),color .3s,box-shadow .3s}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 34px;border-radius:999px;font:700 14px/1.2 'Sora',sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease),color .3s,box-shadow .3s}
 .btn svg{transition:transform .3s var(--ease)}
 .btn:hover svg{transform:translateX(4px)}
-.btn-primary{background:var(--ink);color:#0a0a0a}
+.btn-primary{background:#fff;color:#0a0a0a;box-shadow:0 0 0 4px color-mix(in srgb,var(--c,var(--brand)) 22%,transparent),0 14px 34px -10px color-mix(in srgb,var(--c,var(--brand)) 70%,transparent)}
+.btn-primary:hover{box-shadow:0 0 0 6px color-mix(in srgb,var(--c,var(--brand)) 30%,transparent),0 18px 40px -10px color-mix(in srgb,var(--c,var(--brand)) 85%,transparent);transform:translateY(-2px)}
 .btn-primary::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--c,var(--brand));transform:translateY(101%);transition:transform .45s var(--ease)}
 .btn-primary:hover::before{transform:none}
-.btn-ghost{min-height:42px;padding:0 20px;font-size:12px;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
-.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.btn-ghost{min-height:44px;padding:0 22px;font-size:12px;color:var(--ink);background:rgba(112,181,192,.10);box-shadow:inset 0 0 0 1px var(--brand)}
+.btn-ghost:hover{background:var(--brand);color:#0a0a0a}
 .btn:active{transform:scale(.98)}
 
 /* HERO */
@@ -94,7 +95,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 /* fileira com todos os produtos da campanha, sem destaque para um só */
 .hero-visual{position:relative;justify-self:center;width:100%;max-width:720px}
 .lineup{display:flex;justify-content:center;align-items:flex-end}
-.jar{position:relative;flex:none;width:44%;margin-inline:-9.5%;opacity:0;transform:translateY(48px);transition:opacity 1.2s var(--ease),transform 1.5s var(--ease);transition-delay:calc(.2s + var(--i) * .12s)}
+.jar{position:relative;flex:none;width:46%;margin-inline:-11%;opacity:0;transform:translateY(48px);transition:opacity 1.2s var(--ease),transform 1.5s var(--ease);transition-delay:calc(.2s + var(--i) * .12s)}
 .jar img{width:100%;-webkit-mask-image:radial-gradient(closest-side at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 50%,#000 58%,transparent 100%)}
 .jar:nth-child(odd){margin-bottom:12%}
 .jar:nth-child(even){z-index:1}
@@ -319,32 +320,33 @@ const CONFIG = {
 
   // Produtos da Black Week (aparecem no topo e nas seções, nesta ordem).
   // zoom: aumenta ou diminui o pote na foto para todos parecerem do mesmo tamanho.
+  // zoomTopo: tamanho do pote só na fileira do topo (shots um pouco menores, mais fiel ao tamanho real).
   // base: altura (em %) onde o pote encosta na mesa, para alinhar os potes no topo.
   ofertas: [
     {
       nome: 'Shot <span class="serif">Detox</span>', nomeMsg: 'Shot Detox Green Lanfit', cor: '#4cc04a', off: 20,
-      foto: 'bw/shot-detox.jpg', zoom: 1.08, base: 76.5,
+      foto: 'bw/shot-detox.jpg', zoom: 1.08, zoomTopo: 0.9, base: 76.5,
       apresentacao: 'Green Lanfit · 30 doses · 150 g',
       descricao: 'Com beta-glucana, espirulina, chlorella, couve e espinafre em pó, sabor abacaxi com hortelã. 1 dose ao dia.',
       destaques: ['Beta-glucana', 'Espirulina', 'Chlorella']
     },
     {
       nome: 'Shot <span class="serif">Matinal</span>', nomeMsg: 'Lanfit Shot Matinal', cor: '#6cc3b5', off: 20,
-      foto: 'bw/shot-matinal.jpg', zoom: 0.97, base: 79, pos: '50% 25%',
+      foto: 'bw/shot-matinal.jpg', zoom: 0.97, zoomTopo: 0.9, base: 79, pos: '50% 25%',
       apresentacao: 'Lanfit · Sabor limão · 420 g',
       descricao: 'Com L-glutamina 3.000 mg, fibras 5,7 g, coenzima Q10, resveratrol, cúrcuma e zinco. Dissolva 2 dosadores em 200 ml de água ou suco.',
       destaques: ['L-glutamina', 'Fibras', 'Coenzima Q10']
     },
     {
       nome: 'Saúde <span class="serif">da Mulher</span>', nomeMsg: 'Shot Saúde da Mulher', cor: '#e1287a', off: 25,
-      foto: 'bw/shot-saude-mulher.jpg', zoom: 1.05, base: 76,
+      foto: 'bw/shot-saude-mulher.jpg', zoom: 1.05, zoomTopo: 0.88, base: 76,
       apresentacao: 'Shot · 30 doses · 150 g',
       descricao: 'Com mio-inositol, L-arginina, feno-grego, pinho marítimo e frutas vermelhas liofilizadas. 1 dose ao dia.',
       destaques: ['Mio-inositol', 'L-arginina', 'Feno-grego']
     },
     {
       nome: 'Creatina <span class="serif">Gummy</span>', nomeMsg: 'Creatina Gummy sabor uva', cor: '#b552d9', off: 35,
-      foto: 'bw/creatina-gummy.jpg', zoom: 0.98, base: 84,
+      foto: 'bw/creatina-gummy.jpg', zoom: 0.98, zoomTopo: 1.04, base: 84,
       apresentacao: 'Goma sabor uva · 30 gomas',
       descricao: 'Goma com 3 g de creatina monohidratada. Zero glúten, zero lactose e zero açúcar. 1 goma ao dia.',
       destaques: ['3 g por goma', 'Sabor uva', 'Zero açúcar']
@@ -365,7 +367,7 @@ document.getElementById('ticker').innerHTML = itens.repeat(4);
 // Topo: todos os produtos lado a lado
 const vel = [-0.06, -0.12, -0.08, -0.14];
 document.getElementById('lineup').innerHTML = CONFIG.ofertas.map((p, i) =>
-  `<span class="jar" style="--i:${i}" data-speed="${vel[i % vel.length]}"><img class="norm" src="${p.foto}" alt="Embalagem de ${semTag(p.nome)}" width="1024" height="1536" style="--z:${p.zoom || 1};--base:${p.base || 80}%"${i < 2 ? ' fetchpriority="high"' : ''}></span>`
+  `<span class="jar" style="--i:${i}" data-speed="${vel[i % vel.length]}"><img class="norm" src="${p.foto}" alt="Embalagem de ${semTag(p.nome)}" width="1024" height="1536" style="--z:${p.zoomTopo || p.zoom || 1};--base:${p.base || 80}%"${i < 2 ? ' fetchpriority="high"' : ''}></span>`
 ).join('');
 
 // Ofertas: um espaço para cada produto
