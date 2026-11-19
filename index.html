@@ -165,6 +165,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .pct small{font-size:.4em;letter-spacing:-.02em;margin:.08em 0 0 .04em;font-weight:600}
 .pct-off{display:grid;gap:4px;font-size:12px;letter-spacing:.22em;font-weight:600;text-transform:uppercase;color:var(--ink)}
 .pct-off span{letter-spacing:.04em;text-transform:none;font-weight:400;color:var(--muted);font-size:13px}
+.preco{display:grid;gap:6px;line-height:1}
+.preco s{font-size:14px;color:var(--dim);text-decoration-thickness:1px}
+.preco b{font-size:clamp(30px,3.2vw,44px);font-weight:700;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.preco b small{font-size:.42em;font-weight:600;letter-spacing:0;color:var(--c);margin-right:2px}
+.preco span{font-size:12px;color:var(--muted);letter-spacing:.02em}
 .tag-off{position:absolute;z-index:2;top:22px;left:22px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--c);color:#fff}
 .feature:nth-child(even) .tag-off{left:auto;right:22px}
 
@@ -242,7 +247,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
     <div class="watermark" data-rot="0.04" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <p class="eyebrow fade-in">Lantana · 18 a 30 de novembro</p>
+        <p class="eyebrow fade-in">Lantana · 23 a 28 de novembro</p>
         <h1><span class="ln"><span>Black</span></span><span class="ln"><span class="out">Week</span></span></h1>
         <p class="hero-sub fade-in"><strong>Até 35% off</strong> na Creatina Gummy e nos shots Detox, Matinal e Saúde da Mulher.</p>
         <div class="hero-cta fade-in">
@@ -315,11 +320,12 @@ const CONFIG = {
   mensagemGeral: 'Olá! Vi a Black Week da Lantana e gostaria de saber mais sobre as ofertas.',
 
   // Período da Black Week: antes do início o contador mostra "Começa em"; depois, "Termina em".
-  inicio: '2026-11-18T00:00:00-03:00',
-  fim: '2026-11-30T23:59:59-03:00',
-  validade: 'Ofertas válidas até 30/11/2026 ou enquanto durarem os estoques. Consulte as condições de pagamento e entrega.',
+  inicio: '2026-11-23T00:00:00-03:00',
+  fim: '2026-11-28T23:59:59-03:00',
+  validade: 'Ofertas válidas até 28/11/2026 ou enquanto durarem os estoques. Consulte as condições de pagamento e entrega.',
 
-  ticker: ['Black Week Lantana', 'Creatina Gummy <em>35% off</em>', 'Shots até <em>25% off</em>', '18 a 30 de novembro'],
+  ticker: ['Black Week Lantana', 'Creatina Gummy <em>35% off</em>', 'Shots até <em>25% off</em>', '23 a 28 de novembro'],
+  periodo: 'de 23 a 28 de novembro',
 
   // Produtos da Black Week (aparecem no topo e nas seções, nesta ordem).
   // zoom: aumenta ou diminui o pote na foto para todos parecerem do mesmo tamanho.
@@ -330,28 +336,28 @@ const CONFIG = {
 
   ofertas: [
     {
-      nome: 'Shot <span class="serif">Detox</span>', nomeMsg: 'Shot Detox Green Lanfit', cor: '#4cc04a', off: 20,
+      nome: 'Shot <span class="serif">Detox</span>', nomeMsg: 'Shot Detox Green Lanfit', cor: '#4cc04a', off: 20, de: '149,90', por: '119,90',
       foto: 'bw/shot-detox.jpg', zoom: 1.08, zoomTopo: 0.88, base: 76.5,
       apresentacao: 'Green Lanfit · 30 doses · 150 g',
       descricao: 'Com beta-glucana, espirulina, chlorella, couve e espinafre em pó, sabor abacaxi com hortelã. 1 dose ao dia.',
       destaques: ['Beta-glucana', 'Espirulina', 'Chlorella']
     },
     {
-      nome: 'Shot <span class="serif">Matinal</span>', nomeMsg: 'Lanfit Shot Matinal', cor: '#6cc3b5', off: 20,
+      nome: 'Shot <span class="serif">Matinal</span>', nomeMsg: 'Lanfit Shot Matinal', cor: '#6cc3b5', off: 20, de: '119,90', por: '95,90',
       foto: 'bw/shot-matinal.jpg', zoom: 1.03, zoomTopo: 1.02, base: 80.7, pos: '50% 25%',
       apresentacao: 'Lanfit · Sabor limão · 420 g',
       descricao: 'Com L-glutamina 3.000 mg, fibras 5,7 g, coenzima Q10, resveratrol, cúrcuma e zinco. Dissolva 2 dosadores em 200 ml de água ou suco.',
       destaques: ['L-glutamina', 'Fibras', 'Coenzima Q10']
     },
     {
-      nome: 'Saúde <span class="serif">da Mulher</span>', nomeMsg: 'Shot Saúde da Mulher', cor: '#e1287a', off: 25,
+      nome: 'Saúde <span class="serif">da Mulher</span>', nomeMsg: 'Shot Saúde da Mulher', cor: '#e1287a', off: 25, de: '149,90', por: '112,40',
       foto: 'bw/shot-saude-mulher.jpg', zoom: 1.05, zoomTopo: 0.86, base: 76,
       apresentacao: 'Shot · 30 doses · 150 g',
       descricao: 'Com mio-inositol, L-arginina, feno-grego, pinho marítimo e frutas vermelhas liofilizadas. 1 dose ao dia.',
       destaques: ['Mio-inositol', 'L-arginina', 'Feno-grego']
     },
     {
-      nome: 'Creatina <span class="serif">Gummy</span>', nomeMsg: 'Creatina Gummy sabor uva', cor: '#b552d9', off: 35,
+      nome: 'Creatina <span class="serif">Gummy</span>', nomeMsg: 'Creatina Gummy sabor uva', cor: '#b552d9', off: 35, de: '139,90', por: '90,90',
       foto: 'bw/creatina-gummy.jpg', zoom: 0.98, zoomTopo: 1.0, base: 84,
       apresentacao: 'Goma sabor uva · 30 gomas',
       descricao: 'Goma com 3 g de creatina monohidratada. Zero glúten, zero lactose e zero açúcar. 1 goma ao dia.',
@@ -380,10 +386,10 @@ document.getElementById('lineup').innerHTML = CONFIG.ordemTopo.map(n => CONFIG.o
 const total = CONFIG.ofertas.length, dois = n => String(n).padStart(2, '0');
 document.getElementById('lista-ofertas').innerHTML = CONFIG.ofertas.map((p, i) => {
   const nome = semTag(p.nome);
-  const msg = `Olá! Vi o ${p.nomeMsg} com ${p.off}% off na Black Week da Lantana e gostaria de fazer o pedido.`;
+  const msg = `Olá! Vi o ${p.nomeMsg} com ${p.off}% off (de R$ ${p.de} por R$ ${p.por}) na Black Week da Lantana e gostaria de fazer o pedido.`;
   return `<article class="feature" style="--c:${p.cor}">
     <div class="f-media" data-speed="0.05">
-      <span class="tag-off">${p.off}% off</span>
+      <span class="tag-off">${p.off}% off · R$ ${p.por}</span>
       <div class="stage rv-img"><img src="${p.foto}" alt="Embalagem de ${nome}" loading="lazy" style="scale:${p.zoom || 1}${p.pos ? `;object-position:${p.pos}` : ''}"></div>
     </div>
     <div>
@@ -394,7 +400,7 @@ document.getElementById('lista-ofertas').innerHTML = CONFIG.ofertas.map((p, i) =
       <ul class="chips rv" style="--d:.18s">${p.destaques.map(d => `<li>${d}</li>`).join('')}</ul>
       <div class="f-off rv" style="--d:.22s">
         <p class="pct"><span data-count="${p.off}">0</span><small>%</small></p>
-        <p class="pct-off">Off na Black Week<span>de 18 a 30 de novembro</span></p>
+        <p class="preco"><s>de R$ ${p.de}</s><b><small>por R$</small> ${p.por}</b><span>Off na Black Week · ${CONFIG.periodo}</span></p>
       </div>
       <a class="btn btn-primary rv" style="--d:.28s;--c:${p.cor}" href="${wa(msg)}" target="_blank" rel="noopener">Quero ${p.off}% off ${seta}</a>
     </div>
