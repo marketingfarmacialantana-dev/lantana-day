@@ -95,14 +95,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 /* fileira com todos os produtos da campanha, sem destaque para um só */
 .hero-visual{position:relative;justify-self:center;width:100%;max-width:720px}
 .lineup{display:flex;justify-content:center;align-items:flex-end}
-.jar{position:relative;flex:none;width:46%;margin-inline:-11%;opacity:0;transform:translateY(48px);transition:opacity 1.2s var(--ease),transform 1.5s var(--ease);transition-delay:calc(.2s + var(--i) * .12s)}
+.lineup{position:relative}
+.lineup::after{content:"";position:absolute;z-index:-1;left:8%;right:8%;bottom:6%;height:22%;border-radius:50%;background:radial-gradient(closest-side,rgba(112,181,192,.28),transparent);filter:blur(18px)}
+.jar{position:relative;flex:none;width:42%;margin-inline:-8.5%;mix-blend-mode:lighten;opacity:0;transform:translateY(48px);transition:opacity 1.2s var(--ease),transform 1.5s var(--ease);transition-delay:calc(.2s + var(--i) * .12s)}
 .jar img{width:100%;-webkit-mask-image:radial-gradient(closest-side at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 50%,#000 58%,transparent 100%)}
-.jar:nth-child(odd){margin-bottom:12%}
-.jar:nth-child(even){z-index:1}
+/* pirâmide: potes baixos nas pontas (atrás), potes altos no centro (à frente) */
+.jar--ponta{width:39%;margin-bottom:13%}
+.jar--centro{width:47%;z-index:1}
 .is-loaded .jar{opacity:1;transform:none}
 /* iguala o tamanho visual dos potes: cada foto tem o pote em uma escala diferente */
 .norm{scale:var(--z,1);transform-origin:50% var(--base,80%);translate:0 calc((80% - var(--base,80%)))}
-.hero-badge{position:absolute;right:0;top:4%;z-index:2;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--ink);color:#0a0a0a;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.25;animation:float 6s ease-in-out infinite}
+.hero-badge{position:absolute;right:0;top:-6%;z-index:2;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--ink);color:#0a0a0a;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.25;animation:float 6s ease-in-out infinite}
 .hero-badge strong{display:block;font-size:30px;letter-spacing:-.04em;line-height:1}
 @keyframes float{50%{transform:translateY(-10px) rotate(-4deg)}}
 .scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:1px;height:44px;background:linear-gradient(var(--line-2),transparent);overflow:hidden}
@@ -197,7 +200,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   .top-in{justify-content:space-between}
   .logo img{height:42px}
   .btn-ghost{white-space:nowrap;padding:0 14px;font-size:11px;letter-spacing:.04em}
-  .hero-badge{top:-8%}
+  .hero-badge{top:-10%;right:0}
   .hero-badge{width:92px;height:92px;font-size:9px;right:-4%}
   .hero-badge strong{font-size:24px}
   .hero-cta{gap:22px}
@@ -314,7 +317,7 @@ const CONFIG = {
   // Período da Black Week: antes do início o contador mostra "Começa em"; depois, "Termina em".
   inicio: '2026-11-18T00:00:00-03:00',
   fim: '2026-11-30T23:59:59-03:00',
-  validade: 'Ofertas válidas de 18/11 a 30/11/2026 ou enquanto durarem os estoques. Consulte as condições de pagamento e entrega.',
+  validade: 'Ofertas válidas até 30/11/2026 ou enquanto durarem os estoques. Consulte as condições de pagamento e entrega.',
 
   ticker: ['Black Week Lantana', 'Creatina Gummy <em>35% off</em>', 'Shots até <em>25% off</em>', '18 a 30 de novembro'],
 
@@ -322,31 +325,34 @@ const CONFIG = {
   // zoom: aumenta ou diminui o pote na foto para todos parecerem do mesmo tamanho.
   // zoomTopo: tamanho do pote só na fileira do topo (shots um pouco menores, mais fiel ao tamanho real).
   // base: altura (em %) onde o pote encosta na mesa, para alinhar os potes no topo.
+  // Ordem dos potes no topo (números da lista abaixo, começando em 0): pontas = 1º e 4º, centro = 2º e 3º.
+  ordemTopo: [0, 1, 3, 2],
+
   ofertas: [
     {
       nome: 'Shot <span class="serif">Detox</span>', nomeMsg: 'Shot Detox Green Lanfit', cor: '#4cc04a', off: 20,
-      foto: 'bw/shot-detox.jpg', zoom: 1.08, zoomTopo: 0.9, base: 76.5,
+      foto: 'bw/shot-detox.jpg', zoom: 1.08, zoomTopo: 0.88, base: 76.5,
       apresentacao: 'Green Lanfit · 30 doses · 150 g',
       descricao: 'Com beta-glucana, espirulina, chlorella, couve e espinafre em pó, sabor abacaxi com hortelã. 1 dose ao dia.',
       destaques: ['Beta-glucana', 'Espirulina', 'Chlorella']
     },
     {
       nome: 'Shot <span class="serif">Matinal</span>', nomeMsg: 'Lanfit Shot Matinal', cor: '#6cc3b5', off: 20,
-      foto: 'bw/shot-matinal.jpg', zoom: 0.97, zoomTopo: 0.9, base: 79, pos: '50% 25%',
+      foto: 'bw/shot-matinal.jpg', zoom: 0.97, zoomTopo: 0.93, base: 79, pos: '50% 25%',
       apresentacao: 'Lanfit · Sabor limão · 420 g',
       descricao: 'Com L-glutamina 3.000 mg, fibras 5,7 g, coenzima Q10, resveratrol, cúrcuma e zinco. Dissolva 2 dosadores em 200 ml de água ou suco.',
       destaques: ['L-glutamina', 'Fibras', 'Coenzima Q10']
     },
     {
       nome: 'Saúde <span class="serif">da Mulher</span>', nomeMsg: 'Shot Saúde da Mulher', cor: '#e1287a', off: 25,
-      foto: 'bw/shot-saude-mulher.jpg', zoom: 1.05, zoomTopo: 0.88, base: 76,
+      foto: 'bw/shot-saude-mulher.jpg', zoom: 1.05, zoomTopo: 0.86, base: 76,
       apresentacao: 'Shot · 30 doses · 150 g',
       descricao: 'Com mio-inositol, L-arginina, feno-grego, pinho marítimo e frutas vermelhas liofilizadas. 1 dose ao dia.',
       destaques: ['Mio-inositol', 'L-arginina', 'Feno-grego']
     },
     {
       nome: 'Creatina <span class="serif">Gummy</span>', nomeMsg: 'Creatina Gummy sabor uva', cor: '#b552d9', off: 35,
-      foto: 'bw/creatina-gummy.jpg', zoom: 0.98, zoomTopo: 1.04, base: 84,
+      foto: 'bw/creatina-gummy.jpg', zoom: 0.98, zoomTopo: 1.0, base: 84,
       apresentacao: 'Goma sabor uva · 30 gomas',
       descricao: 'Goma com 3 g de creatina monohidratada. Zero glúten, zero lactose e zero açúcar. 1 goma ao dia.',
       destaques: ['3 g por goma', 'Sabor uva', 'Zero açúcar']
@@ -365,9 +371,9 @@ const itens = CONFIG.ticker.map(t => `<span>${t}</span>`).join('');
 document.getElementById('ticker').innerHTML = itens.repeat(4);
 
 // Topo: todos os produtos lado a lado
-const vel = [-0.06, -0.12, -0.08, -0.14];
-document.getElementById('lineup').innerHTML = CONFIG.ofertas.map((p, i) =>
-  `<span class="jar" style="--i:${i}" data-speed="${vel[i % vel.length]}"><img class="norm" src="${p.foto}" alt="Embalagem de ${semTag(p.nome)}" width="1024" height="1536" style="--z:${p.zoomTopo || p.zoom || 1};--base:${p.base || 80}%"${i < 2 ? ' fetchpriority="high"' : ''}></span>`
+const vel = [-0.05, -0.11, -0.11, -0.05];
+document.getElementById('lineup').innerHTML = CONFIG.ordemTopo.map(n => CONFIG.ofertas[n]).map((p, i) =>
+  `<span class="jar ${i === 0 || i === 3 ? 'jar--ponta' : 'jar--centro'}" style="--i:${i}" data-speed="${vel[i % vel.length]}"><img class="norm" src="${p.foto}" alt="Embalagem de ${semTag(p.nome)}" width="1024" height="1536" style="--z:${p.zoomTopo || p.zoom || 1};--base:${p.base || 80}%"${i < 2 ? ' fetchpriority="high"' : ''}></span>`
 ).join('');
 
 // Ofertas: um espaço para cada produto
