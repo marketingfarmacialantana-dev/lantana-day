@@ -15,7 +15,7 @@
 :root{
   --night:#00131b; --night-2:#03202b; --night-3:#062a37;
   --photo:#0a0a0a;
-  --teal:#006e7b; --teal-hi:#0a8b99; --aqua:#70b5c0; --ice:#c7e0e9; --cream:#f4f1ec; --wa:#25d366;
+  --teal:#006e7b; --teal-hi:#0a8b99; --aqua:#70b5c0; --ice:#c7e0e9; --cream:#f4f1ec; --wa:#25d366; --red:#e53935;
   --muted:rgba(244,241,236,.74); --dim:rgba(244,241,236,.52);
   --line:rgba(112,181,192,.22); --line-2:rgba(112,181,192,.38);
   --f-serif:'Cormorant Garamond','Cormorant',Georgia,'Times New Roman',serif;
@@ -106,7 +106,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .digits div{display:grid;justify-items:center;gap:8px;padding:0 clamp(12px,2vw,26px)}
 .digits div + div{border-left:1px solid var(--line)}
 .digits b{font-family:var(--f-serif);font-weight:300;font-size:clamp(46px,5.6vw,78px);line-height:.85;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.01em}
-.digits div:last-child b{color:var(--aqua)}
+/* números oscilam entre branco e vermelho para dar senso de urgência */
+.digits b{animation:urgencia 1.6s ease-in-out infinite alternate}
+@keyframes urgencia{from{color:var(--cream)}to{color:var(--red);text-shadow:0 0 18px rgba(229,57,53,.35)}}
 .digits small{font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
 
 /* faixa creme das ofertas: o ponto de maior contraste da página */
@@ -252,7 +254,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   Para editar preços, textos, fotos, data e WhatsApp, altere apenas o bloco CONFIG no final deste arquivo.
 -->
 <header class="top" id="top">
-  <a class="aviso" href="#catalogo"><span class="so-desk">Somente 26 de novembro</span><i class="so-desk"></i><span class="so-desk">50% off em seis produtos</span><i class="so-desk"></i><span class="so-desk">20% off nos manipulados</span><span class="so-mob">Só dia 26</span><i class="so-mob"></i><span class="so-mob">50% off + 20% manipulados</span></a>
+  <a class="aviso" href="#catalogo"><span class="so-desk">Somente 26 de novembro</span><i class="so-desk"></i><span class="so-desk">50% off em seis produtos</span><i class="so-desk"></i><span class="so-desk">20% off nos manipulados</span><span class="so-mob">Só hoje</span><i class="so-mob"></i><span class="so-mob">50% off + 20% manipulados</span></a>
   <div class="head">
     <div class="wrap top-in">
       <nav aria-label="Seções">
@@ -273,7 +275,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
       <p class="by rise" style="--d:.28s">by Black</p>
       <div class="vitrine rise" style="--d:.3s">
         <div class="lineup" id="lineup"></div>
-        <p class="flash"><span id="so-hoje">Só dia 26</span><i aria-hidden="true"></i><b>50%<small>off</small></b></p>
+        <p class="flash"><span>Só hoje</span><i aria-hidden="true"></i><b>50%<small>off</small></b></p>
       </div>
       <div class="hero-foot">
         <p class="offer-note rise" style="--d:.9s"><strong>50% off</strong> em seis produtos Lantana Nutrition e <strong>20% off</strong> nos manipulados.</p>
@@ -470,12 +472,10 @@ document.getElementById('validade').textContent = CONFIG.validade;
 
 // Contador
 const inicio = new Date(CONFIG.inicio).getTime(), fim = new Date(CONFIG.fim).getTime();
-const soHoje = document.getElementById('so-hoje');
 const cdLabel = document.getElementById('cd-label'), casas = [...document.querySelectorAll('#countdown b')];
 function tick() {
   const agora = Date.now(), antes = agora < inicio;
   cdLabel.textContent = antes ? 'Começa em' : 'Termina em';
-  soHoje.textContent = antes ? 'Só dia 26' : 'Só hoje';
   const s = Math.max(0, Math.floor(((antes ? inicio : fim) - agora) / 1000));
   if (!s) { document.getElementById('countdown').hidden = true; cdLabel.textContent = 'Edição encerrada'; return; }
   const v = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
