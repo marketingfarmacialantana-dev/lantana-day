@@ -501,41 +501,9 @@ const CONFIG = {
   validade: 'Ofertas válidas somente em 26 e 27/11/2026 ou enquanto durarem os estoques. Desconto progressivo válido somente para manipulados: 10% até R$ 300,00, 15% até R$ 600,00 e 20% acima de R$ 600,00. Frete fixo de R$ 20,00 para todo o Brasil e grátis para MG em compras acima de R$ 600,00. Consulte as condições de pagamento.',
 
   // Ordem dos produtos na fileira do topo (números da lista abaixo, começando em 0).
-  ordemTopo: [4, 0, 2, 3, 1, 5],
+  ordemTopo: [0, 4, 5, 2, 3, 1],
 
   ofertas: [
-    {
-      nome: 'Shot Detox', nomeMsg: 'Shot Detox Green Lanfit', de: '149,90', por: '119,90', off: 20,
-      foto: 'bw/shot-detox.jpg', zoom: 1.08, zoomTopo: 0.9, base: 76.5,
-      apresentacao: 'Green Lanfit · 30 doses · 150 g · abacaxi com hortelã',
-      ideal: 'Para quem quer incluir verdes na rotina sem complicação.',
-      descricao: 'Mistura em pó com beta-glucana, espirulina, chlorella, couve e espinafre. Uma dose por dia.',
-      destaques: ['Beta-glucana', 'Espirulina', 'Chlorella']
-    },
-    {
-      nome: 'Saúde da Mulher', nomeMsg: 'Shot Saúde da Mulher', de: '149,90', por: '112,40', off: 25,
-      foto: 'bw/shot-saude-mulher.jpg', zoom: 1.05, zoomTopo: 1.0, base: 76,
-      apresentacao: 'Shot · 30 doses · 150 g',
-      ideal: 'Pensado para a rotina da mulher, com vários ativos em um só shot diário.',
-      descricao: 'Com mio-inositol, L-arginina, feno-grego, pinho marítimo e frutas vermelhas liofilizadas.',
-      destaques: ['Mio-inositol', 'L-arginina', 'Feno-grego']
-    },
-    {
-      nome: 'Shot Matinal', nomeMsg: 'Lanfit Shot Matinal', de: '119,90', por: '95,90', off: 20,
-      foto: 'bw/shot-matinal.jpg', zoom: 1.03, pos: '50% 25%', zoomTopo: 0.94, base: 80.7,
-      apresentacao: 'Lanfit · 420 g · sabor limão',
-      ideal: 'Para começar o dia: dissolva na água ou no suco pela manhã.',
-      descricao: 'Com L-glutamina 3.000 mg, fibras, coenzima Q10, resveratrol, cúrcuma e zinco.',
-      destaques: ['L-glutamina', 'Fibras', 'Coenzima Q10']
-    },
-    {
-      nome: 'Creatina Gummy', nomeMsg: 'Creatina Gummy sabor uva', de: '139,90', por: '90,90', off: 35,
-      foto: 'bw/creatina-gummy.jpg', zoom: 0.98, zoomTopo: 1.02, base: 84,
-      apresentacao: '30 gomas · sabor uva',
-      ideal: 'Creatina em goma: prática de levar e fácil de tomar todo dia, sem pó e sem medir.',
-      descricao: 'Cada goma tem 3 g de creatina monohidratada. Zero glúten, zero lactose e zero açúcar.',
-      destaques: ['3 g por goma', 'Zero açúcar', '1 goma ao dia']
-    },
     {
       nome: 'Shot Impulso', nomeMsg: 'Shot Pré-Treino Impulso', de: '149,90', por: '74,95', off: 50,
       foto: 'bw/shot-impulso.jpg', zoom: 0.94, zoomTopo: 0.9, base: 75,
@@ -551,6 +519,38 @@ const CONFIG = {
       ideal: 'Em sachês individuais: é só misturar na água, um por dia.',
       descricao: 'Com Morosil, citrus aurantium, cranberry, chá verde, guaraná, gengibre e picolinato de cromo.',
       destaques: ['Morosil', 'Chá verde', '30 sachês']
+    },
+    {
+      nome: 'Creatina Gummy', nomeMsg: 'Creatina Gummy sabor uva', de: '139,90', por: '90,90', off: 35,
+      foto: 'bw/creatina-gummy.jpg', zoom: 0.98, zoomTopo: 1.02, base: 84,
+      apresentacao: '30 gomas · sabor uva',
+      ideal: 'Creatina em goma: prática de levar e fácil de tomar todo dia, sem pó e sem medir.',
+      descricao: 'Cada goma tem 3 g de creatina monohidratada. Zero glúten, zero lactose e zero açúcar.',
+      destaques: ['3 g por goma', 'Zero açúcar', '1 goma ao dia']
+    },
+    {
+      nome: 'Saúde da Mulher', nomeMsg: 'Shot Saúde da Mulher', de: '149,90', por: '112,40', off: 25,
+      foto: 'bw/shot-saude-mulher.jpg', zoom: 1.05, zoomTopo: 1.0, base: 76,
+      apresentacao: 'Shot · 30 doses · 150 g',
+      ideal: 'Pensado para a rotina da mulher, com vários ativos em um só shot diário.',
+      descricao: 'Com mio-inositol, L-arginina, feno-grego, pinho marítimo e frutas vermelhas liofilizadas.',
+      destaques: ['Mio-inositol', 'L-arginina', 'Feno-grego']
+    },
+    {
+      nome: 'Shot Detox', nomeMsg: 'Shot Detox Green Lanfit', de: '149,90', por: '119,90', off: 20,
+      foto: 'bw/shot-detox.jpg', zoom: 1.08, zoomTopo: 0.9, base: 76.5,
+      apresentacao: 'Green Lanfit · 30 doses · 150 g · abacaxi com hortelã',
+      ideal: 'Para quem quer incluir verdes na rotina sem complicação.',
+      descricao: 'Mistura em pó com beta-glucana, espirulina, chlorella, couve e espinafre. Uma dose por dia.',
+      destaques: ['Beta-glucana', 'Espirulina', 'Chlorella']
+    },
+    {
+      nome: 'Shot Matinal', nomeMsg: 'Lanfit Shot Matinal', de: '119,90', por: '95,90', off: 20,
+      foto: 'bw/shot-matinal.jpg', zoom: 1.03, pos: '50% 25%', zoomTopo: 0.94, base: 80.7,
+      apresentacao: 'Lanfit · 420 g · sabor limão',
+      ideal: 'Para começar o dia: dissolva na água ou no suco pela manhã.',
+      descricao: 'Com L-glutamina 3.000 mg, fibras, coenzima Q10, resveratrol, cúrcuma e zinco.',
+      destaques: ['L-glutamina', 'Fibras', 'Coenzima Q10']
     }
   ]
 };
