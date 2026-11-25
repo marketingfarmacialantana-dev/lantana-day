@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lantana Day by Black</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Lantana Day by Black, 26 de novembro: 50% off em seis produtos Lantana Nutrition e 20% off nos manipulados em compras a partir de R$ 200,00.">
+<meta name="description" content="Lantana Day by Black, 26 de novembro: 50% off em seis produtos Lantana Nutrition, Kit Longevité por R$ 280,00 e até 20% off no pedido.">
 <meta name="theme-color" content="#00131b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,10 +113,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 
 /* faixa creme das ofertas: o ponto de maior contraste da página */
 .summary{background:var(--cream);color:var(--night)}
-.summary-in{display:grid;grid-template-columns:1fr 1fr}
-.summary a{display:flex;align-items:center;gap:26px;padding:40px 0;text-decoration:none}
-.summary a + a{border-left:1px solid rgba(0,19,27,.16);padding-left:clamp(24px,4vw,56px)}
-.summary b{font-family:var(--f-serif);font-weight:400;font-size:clamp(64px,7vw,104px);line-height:.8;color:var(--teal);font-variant-numeric:lining-nums;letter-spacing:-.02em}
+.summary-in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.summary a{display:flex;align-items:center;gap:20px;padding:38px clamp(16px,2vw,28px) 38px 0;text-decoration:none}
+.summary a + a{border-left:1px solid rgba(0,19,27,.16);padding-left:clamp(20px,2.6vw,40px)}
+.summary b{font-family:var(--f-serif);font-weight:400;font-size:clamp(52px,5vw,80px);line-height:.8;color:var(--teal);font-variant-numeric:lining-nums;letter-spacing:-.02em}
+.summary b small{font-family:var(--f-sans);font-size:.2em;font-weight:500;letter-spacing:.06em;vertical-align:1.6em;margin-right:4px;color:var(--night)}
 .summary span{display:grid;gap:6px;font-size:15px;color:rgba(0,19,27,.75)}
 .summary span em{font-style:normal;font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--night)}
 .summary svg{margin-left:auto;flex:none;transition:transform .4s var(--ease)}
@@ -157,6 +158,44 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .eco{margin-top:12px;font-size:13px;color:var(--muted)}
 .eco strong{color:var(--cream);font-weight:500}
 .item .btn{margin-top:28px}
+
+/* kit Longevité: faixa clara, no tom da linha de skincare */
+.kit{background:var(--cream);color:var(--night)}
+.kit-in{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:center}
+.kit-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1vw,14px)}
+.kit-photos figure{margin:0}
+.kit-photos img{width:100%;aspect-ratio:2/3;object-fit:cover;box-shadow:0 30px 50px -34px rgba(0,19,27,.55)}
+.kit-photos figure:nth-child(2){margin-top:clamp(24px,4vw,56px)}
+.kit-photos figcaption{display:grid;gap:2px;margin-top:12px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--night)}
+.kit-photos figcaption span{font-weight:400;letter-spacing:.08em;color:rgba(0,19,27,.55)}
+.kit .label{color:var(--teal)}
+.kit h2{font-size:clamp(52px,6vw,92px);font-weight:400;letter-spacing:-.02em;margin-top:16px}
+.kit h2 em{color:var(--teal)}
+.kit .ideal{color:rgba(0,19,27,.78)}
+.kit-list{list-style:none;padding:0;margin:26px 0 0;border-top:1px solid rgba(0,19,27,.14)}
+.kit-list li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid rgba(0,19,27,.14)}
+.kit-list b{font-family:var(--f-serif);font-weight:500;font-size:24px;line-height:1.1}
+.kit-list span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,19,27,.55)}
+.kit .price{border-top:0;padding-top:0;margin-top:30px}
+.kit .price s{color:rgba(0,19,27,.5)}
+.kit .price b small{color:rgba(0,19,27,.6)}
+.kit .eco{color:rgba(0,19,27,.7)}
+.kit .eco strong{color:var(--night)}
+.btn-dark{background:var(--night);color:var(--cream);margin-top:28px}
+.btn-dark:hover{background:var(--teal)}
+
+/* condições: desconto progressivo em degraus + frete */
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:10px;height:230px;margin:34px 0 0}
+.tier{height:var(--h);display:flex;flex-direction:column;justify-content:space-between;padding:16px 16px 14px;background:rgba(112,181,192,.1);box-shadow:inset 0 0 0 1px var(--line)}
+.tier b{font-family:var(--f-serif);font-weight:400;font-size:clamp(44px,4.4vw,62px);line-height:.8;font-variant-numeric:lining-nums}
+.tier span{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tier--top{background:var(--teal);box-shadow:none}
+.tier--top span{color:var(--cream)}
+.frete{display:grid;grid-template-columns:1fr 1fr;margin:26px 0 32px;border-block:1px solid var(--line)}
+.frete p{display:grid;gap:4px;padding:18px 0}
+.frete p + p{border-left:1px solid var(--line);padding-left:22px}
+.frete b{font-family:var(--f-serif);font-weight:500;font-size:30px;line-height:1}
+.frete span{font-size:13px;color:var(--muted);line-height:1.45}
 
 /* manipulados */
 .manip{background:var(--night);overflow:hidden}
@@ -203,7 +242,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   .offer-note{order:2;max-width:34ch}
 }
 @media (max-width:959px){
-  .sec-title,.manip-in,.item{grid-template-columns:1fr}
+  .sec-title,.manip-in,.item,.kit-in{grid-template-columns:1fr}
+  .summary-in{grid-template-columns:1fr}
+  .summary a + a{border-left:0;border-top:1px solid rgba(0,19,27,.16);padding-left:0}
+  .summary a{padding:26px 0;gap:20px}
   .sec-title > p{justify-self:start}
   .item{gap:30px;max-width:560px;margin-inline:auto}
   .m-photo{min-height:380px;order:-1}
@@ -231,10 +273,14 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   .flash{margin-inline:0;gap:14px;padding:14px 12px}
   .flash span{letter-spacing:.24em}
   .digits div{padding:0 11px}
-  .hero-foot .btn,.item .btn,.manip .btn,.closing .btn{width:100%}
-  .summary-in{grid-template-columns:1fr}
-  .summary a + a{border-left:0;border-top:1px solid rgba(0,19,27,.16);padding-left:0}
-  .summary a{padding:28px 0;gap:20px}
+  .hero-foot .btn,.item .btn,.manip .btn,.closing .btn,.kit .btn{width:100%}
+  .kit-photos figcaption{font-size:9.5px;letter-spacing:.1em}
+  .kit-list b{font-size:21px}
+  .tiers{height:200px;gap:6px}
+  .tier{padding:12px 10px}
+  .tier span{font-size:9.5px;letter-spacing:.08em}
+  .frete{grid-template-columns:1fr}
+  .frete p + p{border-left:0;border-top:1px solid var(--line);padding-left:0}
   .item-img .tag{width:80px;height:80px;top:20px;left:20px}
   .item-img .tag b{font-size:29px}
   .m-text{padding:36px 22px 40px}
@@ -254,12 +300,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   Para editar preços, textos, fotos, data e WhatsApp, altere apenas o bloco CONFIG no final deste arquivo.
 -->
 <header class="top" id="top">
-  <a class="aviso" href="#catalogo"><span class="so-desk">Somente hoje (26/11/2026)</span><i class="so-desk"></i><span class="so-desk">50% off em seis produtos</span><i class="so-desk"></i><span class="so-desk">20% off nos manipulados</span><span class="so-mob">Só hoje</span><i class="so-mob"></i><span class="so-mob">50% off + 20% manipulados</span></a>
+  <a class="aviso" href="#catalogo"><span class="so-desk">Somente hoje (26/11/2026)</span><i class="so-desk"></i><span class="so-desk">50% off em seis produtos</span><i class="so-desk"></i><span class="so-desk">Kit Longevité R$ 280</span><i class="so-desk"></i><span class="so-desk">Até 20% off no pedido</span><span class="so-mob">Só hoje</span><i class="so-mob"></i><span class="so-mob">50% off + até 20% no pedido</span></a>
   <div class="head">
     <div class="wrap top-in">
       <nav aria-label="Seções">
         <a href="#catalogo">Coleção</a>
-        <a href="#manipulados">Manipulados</a>
+        <a href="#kit">Kit Longevité</a>
+        <a href="#condicoes">Condições</a>
       </nav>
       <a href="#topo" class="logo"><img src="bw/logo-lantana-claro.png" alt="Lantana Saúde Personalizada" width="720" height="238"></a>
       <a class="top-cta" data-wa="geral" href="#" target="_blank" rel="noopener">Atendimento</a>
@@ -278,7 +325,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
         <p class="flash"><span>Só hoje</span><i aria-hidden="true"></i><b>50%<small>off</small></b></p>
       </div>
       <div class="hero-foot">
-        <p class="offer-note rise" style="--d:.9s"><strong>50% off</strong> em seis produtos Lantana Nutrition e <strong>20% off</strong> nos manipulados.</p>
+        <p class="offer-note rise" style="--d:.9s"><strong>50% off</strong> em seis produtos Lantana Nutrition, <strong>Kit Longevité</strong> por R$&nbsp;280,00 e <strong>até 20% off</strong> no pedido.</p>
         <div class="clock rise" style="--d:1s">
           <span class="label" id="cd-label">Começa em</span>
           <div class="digits" id="countdown" aria-live="off">
@@ -295,7 +342,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   <nav class="summary" aria-label="Ofertas do dia">
     <div class="wrap summary-in">
       <a href="#catalogo"><b>50%</b><span><em>Lantana Nutrition</em>Seis produtos pela metade do preço</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-      <a href="#manipulados"><b>20%</b><span><em>Manipulados</em>Em compras a partir de R$ 200,00</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a href="#kit"><b><small>R$</small>280</b><span><em>Kit Longevité</em>De R$&nbsp;349,90 por R$&nbsp;280,00</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a href="#condicoes"><b>20%</b><span><em>Desconto progressivo</em>Até 20% off no valor do pedido</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
     </div>
   </nav>
 
@@ -312,16 +360,49 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
     </div>
   </section>
 
-  <section class="sec manip" id="manipulados">
+  <section class="sec kit" id="kit">
+    <div class="wrap kit-in">
+      <div class="kit-photos rv">
+        <figure><img src="bw/kit-espuma.jpg" alt="Espuma Calmante Lantana Longevité" loading="lazy" width="1024" height="1536"><figcaption>Espuma Calmante<span>150 ml</span></figcaption></figure>
+        <figure><img src="bw/kit-ghkcu.jpg" alt="GHK-Cu Repair Serum Lantana Longevité" loading="lazy" width="1024" height="1536"><figcaption>GHK-Cu Repair Serum<span>30 ml</span></figcaption></figure>
+        <figure><img src="bw/kit-lumigold.jpg" alt="Lumigold C Serum Lantana Longevité" loading="lazy" width="1024" height="1536"><figcaption>Lumigold C Serum<span>30 ml</span></figcaption></figure>
+      </div>
+      <div class="kit-text">
+        <p class="label rv">Lantana Longevité · Kit</p>
+        <h2 class="rv" style="--d:.06s">Kit <em>Longevité</em></h2>
+        <p class="ideal rv" style="--d:.1s">Três produtos da linha Longevité para a rotina de cuidado com a pele, juntos em um kit.</p>
+        <ul class="kit-list rv" style="--d:.14s">
+          <li><b>Espuma Calmante</b><span>150 ml</span></li>
+          <li><b>GHK-Cu Repair Serum</b><span>30 ml</span></li>
+          <li><b>Lumigold C Serum</b><span>30 ml</span></li>
+        </ul>
+        <div class="price rv" style="--d:.18s">
+          <div><s>de R$ 349,90</s><b><small>R$</small>280,00</b></div>
+          <span class="pct">Preço de kit</span>
+        </div>
+        <p class="eco rv" style="--d:.2s">Economia de <strong>R$ 69,90</strong> no Lantana Day</p>
+        <a class="btn btn-dark rv" style="--d:.24s" data-wa="kit" href="#" target="_blank" rel="noopener">Quero o kit <svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec manip" id="condicoes">
     <div class="wrap">
       <div class="manip-in rv">
         <div class="m-text">
-          <p class="label">Manipulados</p>
-          <p class="big20" aria-hidden="true"><span data-count="20">0</span><small>%</small></p>
-          <h2>Off em <em>todos</em> os manipulados</h2>
-          <p class="txt">Fórmulas feitas sob medida para você, com desconto em toda a linha de manipulados da Lantana durante o Lantana Day.</p>
-          <p class="cond">Em compras a partir de <b>R$ 200,00</b></p>
-          <a class="btn btn-solid" data-wa="manip" href="#" target="_blank" rel="noopener">Quero 20% off <svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+          <p class="label">Condições do dia</p>
+          <h2>Quanto maior o pedido, <em>maior</em> o desconto</h2>
+          <p class="txt">Desconto progressivo sobre o valor total do pedido, inclusive manipulados.</p>
+          <div class="tiers">
+            <div class="tier" style="--h:52%"><b>10%</b><span>Até R$ 300,00</span></div>
+            <div class="tier" style="--h:72%"><b>15%</b><span>Até R$ 600,00</span></div>
+            <div class="tier tier--top" style="--h:100%"><b>20%</b><span>Acima de R$ 600,00</span></div>
+          </div>
+          <div class="frete">
+            <p><b>R$ 20,00</b><span>Frete fixo para todo o Brasil</span></p>
+            <p><b>Grátis</b><span>Frete para MG em compras acima de R$ 600,00</span></p>
+          </div>
+          <a class="btn btn-solid" data-wa="geral" href="#" target="_blank" rel="noopener">Montar meu pedido <svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
         </div>
         <div class="m-photo"><img src="bw/manipulados-capsulas.jpg" alt="Potes da Lantana com cápsulas manipuladas" loading="lazy" width="1050" height="1400"></div>
       </div>
@@ -364,12 +445,12 @@ const CONFIG = {
   // WhatsApp: +55 31 9 9225-0059
   whatsapp: '5531992250059',
   mensagemGeral: 'Olá! Vi o Lantana Day by Black e gostaria de saber mais sobre as ofertas.',
-  mensagemManip: 'Olá! Vi o Lantana Day by Black e quero os 20% off nos manipulados (compras a partir de R$ 200,00).',
+  mensagemKit: 'Olá! Vi o Kit Longevité (Espuma Calmante + GHK-Cu + Lumigold C) de R$ 349,90 por R$ 280,00 no Lantana Day by Black e gostaria de fazer o pedido.',
 
   // Antes do início o contador mostra "Começa em"; durante o dia, "Termina em".
   inicio: '2026-11-26T00:00:00-03:00',
   fim: '2026-11-26T23:59:59-03:00',
-  validade: 'Ofertas válidas somente em 26/11/2026 ou enquanto durarem os estoques. 20% off nos manipulados em compras a partir de R$ 200,00. Consulte as condições de pagamento e entrega.',
+  validade: 'Ofertas válidas somente em 26/11/2026 ou enquanto durarem os estoques. Desconto progressivo sobre o valor do pedido: 10% até R$ 300,00, 15% até R$ 600,00 e 20% acima de R$ 600,00. Frete fixo de R$ 20,00 para todo o Brasil e frete grátis para MG em compras acima de R$ 600,00. Consulte as condições de pagamento.',
 
   // Ordem dos produtos na fileira do topo (números da lista abaixo, começando em 0).
   ordemTopo: [4, 0, 2, 3, 1, 5],
@@ -466,7 +547,7 @@ document.getElementById('lista').innerHTML = CONFIG.ofertas.map((p, i) => {
 
 // Links de WhatsApp e rodapé
 document.querySelectorAll('[data-wa="geral"]').forEach(a => { a.href = wa(CONFIG.mensagemGeral); });
-document.querySelectorAll('[data-wa="manip"]').forEach(a => { a.href = wa(CONFIG.mensagemManip); });
+document.querySelectorAll('[data-wa="kit"]').forEach(a => { a.href = wa(CONFIG.mensagemKit); });
 document.getElementById('validade').textContent = CONFIG.validade;
 
 // Contador
