@@ -254,7 +254,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   Para editar preços, textos, fotos, data e WhatsApp, altere apenas o bloco CONFIG no final deste arquivo.
 -->
 <header class="top" id="top">
-  <a class="aviso" href="#catalogo"><span class="so-desk">Somente 26 de novembro</span><i class="so-desk"></i><span class="so-desk">50% off em seis produtos</span><i class="so-desk"></i><span class="so-desk">20% off nos manipulados</span><span class="so-mob">Só hoje</span><i class="so-mob"></i><span class="so-mob">50% off + 20% manipulados</span></a>
+  <a class="aviso" href="#catalogo"><span class="so-desk">Somente hoje (26/11/2026)</span><i class="so-desk"></i><span class="so-desk">50% off em seis produtos</span><i class="so-desk"></i><span class="so-desk">20% off nos manipulados</span><span class="so-mob">Só hoje</span><i class="so-mob"></i><span class="so-mob">50% off + 20% manipulados</span></a>
   <div class="head">
     <div class="wrap top-in">
       <nav aria-label="Seções">
@@ -282,7 +282,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
         <div class="clock rise" style="--d:1s">
           <span class="label" id="cd-label">Começa em</span>
           <div class="digits" id="countdown" aria-live="off">
-            <div><b data-u="d">00</b><small>dias</small></div>
             <div><b data-u="h">00</b><small>horas</small></div>
             <div><b data-u="m">00</b><small>min</small></div>
             <div><b data-u="s">00</b><small>seg</small></div>
@@ -478,7 +477,7 @@ function tick() {
   cdLabel.textContent = antes ? 'Começa em' : 'Termina em';
   const s = Math.max(0, Math.floor(((antes ? inicio : fim) - agora) / 1000));
   if (!s) { document.getElementById('countdown').hidden = true; cdLabel.textContent = 'Edição encerrada'; return; }
-  const v = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+  const v = { h: Math.floor(s / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
   casas.forEach(b => { b.textContent = dois(v[b.dataset.u]); });
 }
 tick(); setInterval(tick, 1000);
