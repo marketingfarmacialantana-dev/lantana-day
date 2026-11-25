@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lantana Day by Black</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Lantana Day by Black, 26 de novembro: 50% off em seis produtos Lantana Nutrition, Kit Longevité por R$ 280,00 e até 20% off no pedido.">
+<meta name="description" content="Lantana Day by Black, 26 de novembro: 50% off em seis produtos Lantana Nutrition, Kit Longevité por R$ 280,00 e até 20% off nos manipulados.">
 <meta name="theme-color" content="#00131b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +87,20 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .jar img{width:100%;-webkit-mask-image:radial-gradient(closest-side at 50% 52%,#000 62%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 52%,#000 62%,transparent 100%)}
 .is-loaded .jar{opacity:1;transform:none}
 .norm{scale:var(--z,1);transform-origin:50% var(--base,80%);translate:0 calc(80% - var(--base,80%))}
+/* dois grupos na vitrine: Longevité (novidade) e Nutrition */
+.grupos{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);align-items:end}
+.grupo{display:flex;flex-direction:column;justify-content:flex-end;min-width:0}
+.grupo--lg{border-right:1px solid rgba(112,181,192,.16)}
+.lg-row{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:5%;height:clamp(200px,24vw,330px);padding:0 6% clamp(18px,2.4vw,34px)}
+.lg-row::after{content:"";position:absolute;z-index:0;left:10%;right:10%;bottom:clamp(8px,1.4vw,20px);height:26px;border-radius:50%;background:radial-gradient(closest-side,rgba(112,181,192,.25),transparent);filter:blur(8px)}
+.lg{position:relative;z-index:1;width:auto;max-width:none;filter:drop-shadow(0 14px 18px rgba(0,0,0,.6));opacity:0;transform:translateY(30px);transition:opacity 1.3s var(--ease),transform 1.5s var(--ease)}
+.lg-espuma{height:100%;transition-delay:.35s}
+.lg-ghkcu{height:68%;transition-delay:.45s}
+.lg-lumi{height:60%;transition-delay:.55s}
+.is-loaded .lg{opacity:1;transform:none}
+.grupo-cap{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 10px 16px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center}
+.novo{padding:4px 8px;background:var(--teal);color:var(--cream);font-size:9.5px;letter-spacing:.2em}
+
 /* faixa creme da oferta sob os produtos */
 .flash{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,40px);margin:0 calc(-1 * clamp(8px,2vw,24px));padding:clamp(14px,1.8vw,22px) 20px;background:var(--cream);color:var(--night)}
 .flash span{font-size:clamp(11px,1.1vw,14px);font-weight:600;letter-spacing:.34em;text-transform:uppercase}
@@ -267,6 +281,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   .by{gap:14px;letter-spacing:.45em}
   .hero h1{width:min(78vw,330px);margin-top:22px}
   .vitrine{margin-inline:-6px;padding:22px 0 0}
+  .grupos{grid-template-columns:1fr}
+  .grupo--lg{border-right:0;border-bottom:1px solid rgba(112,181,192,.16)}
+  .lg-row{height:210px;gap:7%}
+  .grupo-cap{font-size:10px;letter-spacing:.14em;padding:10px 8px 14px}
   .lineup{padding-inline:4px}
   .jar{width:42%;margin-inline:-5.5%}
   .jar:nth-child(1),.jar:nth-child(2),.jar:nth-child(6){display:none}
@@ -300,13 +318,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   Para editar preços, textos, fotos, data e WhatsApp, altere apenas o bloco CONFIG no final deste arquivo.
 -->
 <header class="top" id="top">
-  <a class="aviso" href="#catalogo"><span class="so-desk">Somente hoje (26/11/2026)</span><i class="so-desk"></i><span class="so-desk">50% off em seis produtos</span><i class="so-desk"></i><span class="so-desk">Kit Longevité R$ 280</span><i class="so-desk"></i><span class="so-desk">Até 20% off no pedido</span><span class="so-mob">Só hoje</span><i class="so-mob"></i><span class="so-mob">50% off + até 20% no pedido</span></a>
+  <a class="aviso" href="#kit"><span class="so-desk">Somente hoje (26/11/2026)</span><i class="so-desk"></i><span class="so-desk">Kit Longevité R$ 280</span><i class="so-desk"></i><span class="so-desk">50% off em seis produtos</span><i class="so-desk"></i><span class="so-desk">Até 20% off nos manipulados</span><span class="so-mob">Só hoje</span><i class="so-mob"></i><span class="so-mob">Kit Longevité R$ 280 + 50% off</span></a>
   <div class="head">
     <div class="wrap top-in">
       <nav aria-label="Seções">
-        <a href="#catalogo">Coleção</a>
         <a href="#kit">Kit Longevité</a>
-        <a href="#condicoes">Condições</a>
+        <a href="#catalogo">Nutrition</a>
+        <a href="#condicoes">Manipulados</a>
       </nav>
       <a href="#topo" class="logo"><img src="bw/logo-lantana-claro.png" alt="Lantana Saúde Personalizada" width="720" height="238"></a>
       <a class="top-cta" data-wa="geral" href="#" target="_blank" rel="noopener">Atendimento</a>
@@ -321,11 +339,24 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
       <h1 class="rise" style="--d:.15s"><img src="bw/logo-lantana-day-branco.png" alt="Lantana Day" width="1451" height="864" fetchpriority="high"></h1>
       <p class="by rise" style="--d:.28s">by Black</p>
       <div class="vitrine rise" style="--d:.3s">
-        <div class="lineup" id="lineup"></div>
+        <div class="grupos">
+          <div class="grupo grupo--lg">
+            <div class="lg-row">
+              <img class="lg lg-espuma" src="bw/lg-espuma.png" alt="Espuma Calmante Lantana Longevité" width="245" height="1100">
+              <img class="lg lg-ghkcu" src="bw/lg-ghkcu.png" alt="GHK-Cu Repair Serum Lantana Longevité" width="474" height="1100">
+              <img class="lg lg-lumi" src="bw/lg-lumigold.png" alt="Lumigold C Serum Lantana Longevité" width="529" height="961">
+            </div>
+            <p class="grupo-cap"><span class="novo">Novo</span>Kit Longevité · R$&nbsp;280</p>
+          </div>
+          <div class="grupo grupo--nt">
+            <div class="lineup" id="lineup"></div>
+            <p class="grupo-cap">Lantana Nutrition · 50% off</p>
+          </div>
+        </div>
         <p class="flash"><span>Só hoje</span><i aria-hidden="true"></i><b>50%<small>off</small></b></p>
       </div>
       <div class="hero-foot">
-        <p class="offer-note rise" style="--d:.9s"><strong>50% off</strong> em seis produtos Lantana Nutrition, <strong>Kit Longevité</strong> por R$&nbsp;280,00 e <strong>até 20% off</strong> no pedido.</p>
+        <p class="offer-note rise" style="--d:.9s"><strong>Kit Longevité</strong> por R$&nbsp;280,00, <strong>50% off</strong> em seis produtos Lantana Nutrition e <strong>até 20% off</strong> nos manipulados.</p>
         <div class="clock rise" style="--d:1s">
           <span class="label" id="cd-label">Começa em</span>
           <div class="digits" id="countdown" aria-live="off">
@@ -334,31 +365,18 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
             <div><b data-u="s">00</b><small>seg</small></div>
           </div>
         </div>
-        <a class="btn btn-solid rise" style="--d:1.1s" href="#catalogo">Ver a coleção <svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        <a class="btn btn-solid rise" style="--d:1.1s" href="#kit">Ver as ofertas <svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
       </div>
     </div>
   </section>
 
   <nav class="summary" aria-label="Ofertas do dia">
     <div class="wrap summary-in">
-      <a href="#catalogo"><b>50%</b><span><em>Lantana Nutrition</em>Seis produtos pela metade do preço</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
       <a href="#kit"><b><small>R$</small>280</b><span><em>Kit Longevité</em>De R$&nbsp;349,90 por R$&nbsp;280,00</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-      <a href="#condicoes"><b>20%</b><span><em>Desconto progressivo</em>Até 20% off no valor do pedido</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a href="#catalogo"><b>50%</b><span><em>Lantana Nutrition</em>Seis produtos pela metade do preço</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a href="#condicoes"><b>20%</b><span><em>Manipulados</em>Desconto progressivo de até 20%</span><svg width="22" height="12" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
     </div>
   </nav>
-
-  <section class="sec catalogo" id="catalogo">
-    <div class="wrap">
-      <div class="sec-title">
-        <div>
-          <p class="label rv">A coleção</p>
-          <h2 class="rv" style="--d:.08s">Seis produtos, <em>metade</em> do preço</h2>
-        </div>
-        <p class="rv" style="--d:.16s">Conheça cada produto com calma. O pedido é feito direto com a equipe da Lantana, pelo WhatsApp, só no dia 26.</p>
-      </div>
-      <div id="lista"></div>
-    </div>
-  </section>
 
   <section class="sec kit" id="kit">
     <div class="wrap kit-in">
@@ -386,23 +404,36 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
     </div>
   </section>
 
+  <section class="sec catalogo" id="catalogo">
+    <div class="wrap">
+      <div class="sec-title">
+        <div>
+          <p class="label rv">A coleção</p>
+          <h2 class="rv" style="--d:.08s">Seis produtos, <em>metade</em> do preço</h2>
+        </div>
+        <p class="rv" style="--d:.16s">Conheça cada produto com calma. O pedido é feito direto com a equipe da Lantana, pelo WhatsApp, só no dia 26.</p>
+      </div>
+      <div id="lista"></div>
+    </div>
+  </section>
+
   <section class="sec manip" id="condicoes">
     <div class="wrap">
       <div class="manip-in rv">
         <div class="m-text">
-          <p class="label">Condições do dia</p>
-          <h2>Quanto maior o pedido, <em>maior</em> o desconto</h2>
-          <p class="txt">Desconto progressivo sobre o valor total do pedido, inclusive manipulados.</p>
+          <p class="label">Manipulados</p>
+          <h2>Quanto maior o pedido de manipulados, <em>maior</em> o desconto</h2>
+          <p class="txt">Desconto progressivo e condições de frete válidos somente para manipulados. Não se aplicam ao Kit Longevité nem aos produtos Lantana Nutrition.</p>
           <div class="tiers">
             <div class="tier" style="--h:52%"><b>10%</b><span>Até R$ 300,00</span></div>
             <div class="tier" style="--h:72%"><b>15%</b><span>Até R$ 600,00</span></div>
             <div class="tier tier--top" style="--h:100%"><b>20%</b><span>Acima de R$ 600,00</span></div>
           </div>
           <div class="frete">
-            <p><b>R$ 20,00</b><span>Frete fixo para todo o Brasil</span></p>
-            <p><b>Grátis</b><span>Frete para MG em compras acima de R$ 600,00</span></p>
+            <p><b>R$ 20,00</b><span>Frete fixo dos manipulados para todo o Brasil</span></p>
+            <p><b>Grátis</b><span>Frete dos manipulados para MG em compras acima de R$ 600,00</span></p>
           </div>
-          <a class="btn btn-solid" data-wa="geral" href="#" target="_blank" rel="noopener">Montar meu pedido <svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+          <a class="btn btn-solid" data-wa="manip" href="#" target="_blank" rel="noopener">Pedir manipulados <svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
         </div>
         <div class="m-photo"><img src="bw/manipulados-capsulas.jpg" alt="Potes da Lantana com cápsulas manipuladas" loading="lazy" width="1050" height="1400"></div>
       </div>
@@ -445,12 +476,13 @@ const CONFIG = {
   // WhatsApp: +55 31 9 9225-0059
   whatsapp: '5531992250059',
   mensagemGeral: 'Olá! Vi o Lantana Day by Black e gostaria de saber mais sobre as ofertas.',
+  mensagemManip: 'Olá! Vi o Lantana Day by Black e gostaria de fazer um pedido de manipulados com o desconto progressivo.',
   mensagemKit: 'Olá! Vi o Kit Longevité (Espuma Calmante + GHK-Cu + Lumigold C) de R$ 349,90 por R$ 280,00 no Lantana Day by Black e gostaria de fazer o pedido.',
 
   // Antes do início o contador mostra "Começa em"; durante o dia, "Termina em".
   inicio: '2026-11-26T00:00:00-03:00',
   fim: '2026-11-26T23:59:59-03:00',
-  validade: 'Ofertas válidas somente em 26/11/2026 ou enquanto durarem os estoques. Desconto progressivo sobre o valor do pedido: 10% até R$ 300,00, 15% até R$ 600,00 e 20% acima de R$ 600,00. Frete fixo de R$ 20,00 para todo o Brasil e frete grátis para MG em compras acima de R$ 600,00. Consulte as condições de pagamento.',
+  validade: 'Ofertas válidas somente em 26/11/2026 ou enquanto durarem os estoques. Desconto progressivo válido somente para manipulados: 10% até R$ 300,00, 15% até R$ 600,00 e 20% acima de R$ 600,00. Frete dos manipulados: fixo de R$ 20,00 para todo o Brasil e grátis para MG em compras acima de R$ 600,00. Consulte as condições de pagamento.',
 
   // Ordem dos produtos na fileira do topo (números da lista abaixo, começando em 0).
   ordemTopo: [4, 0, 2, 3, 1, 5],
@@ -548,6 +580,7 @@ document.getElementById('lista').innerHTML = CONFIG.ofertas.map((p, i) => {
 // Links de WhatsApp e rodapé
 document.querySelectorAll('[data-wa="geral"]').forEach(a => { a.href = wa(CONFIG.mensagemGeral); });
 document.querySelectorAll('[data-wa="kit"]').forEach(a => { a.href = wa(CONFIG.mensagemKit); });
+document.querySelectorAll('[data-wa="manip"]').forEach(a => { a.href = wa(CONFIG.mensagemManip); });
 document.getElementById('validade').textContent = CONFIG.validade;
 
 // Contador
